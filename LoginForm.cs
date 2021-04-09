@@ -20,6 +20,7 @@ namespace JustinTownleySoftwareII
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            Globals.fileWriter.Close();
             Application.Exit();
         }
     }

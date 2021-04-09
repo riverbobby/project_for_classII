@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace JustinTownleySoftwareII
 {
@@ -14,6 +15,10 @@ namespace JustinTownleySoftwareII
         [STAThread]
         static void Main()
         {
+            //opening filestream and streamwriter
+            FileStream log = new FileStream(Globals.fileName, FileMode.Append, FileAccess.Write);
+            Globals.fileWriter = new StreamWriter(log);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
