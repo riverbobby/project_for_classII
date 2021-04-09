@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace JustinTownleySoftwareII
 {
@@ -14,5 +15,8 @@ namespace JustinTownleySoftwareII
         public static int CurrentAddressID { get; set; }
         public static int CurrentCityID { get; set; }
         public static int CurrentCountryID { get; set; }
+        public static StreamReader fileReader;
+        public static string fileName = "logfile.txt";
+
     }
 }

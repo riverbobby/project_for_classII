@@ -10,12 +10,17 @@ using System.Windows.Forms;
 
 namespace JustinTownleySoftwareII
 {
-    public partial class Login : Form
+    public partial class LoginForm : Form
     {
         
-        public Login()
+        public LoginForm()
         {
             InitializeComponent();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
