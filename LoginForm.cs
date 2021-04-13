@@ -23,5 +23,17 @@ namespace JustinTownleySoftwareII
             Globals.fileWriter.Close();
             Application.Exit();
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            string messageBuilder = "Please fix the folling issues:\n";
+            bool invalid = false;
+            if (string.IsNullOrWhiteSpace(usernameTextBox.Text))
+            {
+                invalid = true;
+                messageBuilder += "Please enter a username\n";
+            }
+            Globals.fileWriter
+        }
     }
 }
