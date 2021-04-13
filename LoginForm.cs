@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace JustinTownleySoftwareII
 {
@@ -26,14 +27,35 @@ namespace JustinTownleySoftwareII
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string messageBuilder = "Please fix the folling issues:\n";
-            bool invalid = false;
-            if (string.IsNullOrWhiteSpace(usernameTextBox.Text))
+            try
             {
-                invalid = true;
-                messageBuilder += "Please enter a username\n";
+                MessageBox.Show("Connecting to MySQL database");
+                Globals.conn.Open();
+                // Perform databaase operations
+                string sql = "SELECT userName, password FROM user WHERE userId='1'";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    MessageBox.Show(rdr[0]+" --"+rdr[1]);
+                }
+                rdr.Close();
+               
             }
-            Globals.fileWriter
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to MySQL...");
+            }
+            Globals.conn.Close();
+            MessageBox.Show("Done");
+            //string messageBuilder = "Please fix the folling issues:\n";
+            //bool invalid = false;
+            //if (string.IsNullOrWhiteSpace(usernameTextBox.Text))
+            //{
+            //    invalid = true;
+            //    messageBuilder += "Please enter a username\n";
+            //}
         }
     }
 }
