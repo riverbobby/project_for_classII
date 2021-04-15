@@ -21,8 +21,16 @@ namespace JustinTownleySoftwareII
         public static string connStr = "server=wgudb.ucertify.com;user=U075EN;database=U075EN;port=3306;password=53688947876";
         public static MySqlConnection conn;
         //StreamWriter globals
-        public static StreamWriter fileWriter;
-        public static string fileName = "logfile.txt";
+        //public static global for logfile;
+        //public static string fileName = "logfile.txt";
+
+        public static void Log(string logMessage, TextWriter w)
+        {
+            w.Write("\r\nLog Entry : ");
+            w.WriteLine($"{DateTime.UtcNow.ToLongTimeString()} {DateTime.UtcNow.ToLongDateString()}");
+            w.WriteLine($"  :{logMessage}");
+            w.WriteLine("------------------");
+        }
 
     }
 }

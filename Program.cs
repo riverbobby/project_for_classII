@@ -31,8 +31,8 @@ namespace JustinTownleySoftwareII
             //Globals.conn.Close();
 
             //opening filestream and streamwriter
-            FileStream log = new FileStream(Globals.fileName, FileMode.Append, FileAccess.Write);
-            Globals.fileWriter = new StreamWriter(log);
+            //FileStream log = new FileStream(Globals.fileName, FileMode.Append, FileAccess.Write);
+            //Globals.fileWriter = new StreamWriter(log);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
