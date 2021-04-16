@@ -28,6 +28,16 @@ namespace JustinTownleySoftwareII
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+
+            string messageBuilder = "Please fix the folling issues:\n";
+            bool invalid = false;
+            
+            if (string.IsNullOrWhiteSpace(usernameTextBox.Text))
+            {
+                invalid = true;
+                messageBuilder += "Please enter a username\n";
+            }
+
             //sample log append
             using (StreamWriter w = File.AppendText("logfile.txt"))
             {
