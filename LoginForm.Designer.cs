@@ -34,7 +34,7 @@ namespace JustinTownleySoftwareII
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -87,13 +87,13 @@ namespace JustinTownleySoftwareII
             this.usernameTextBox.Size = new System.Drawing.Size(204, 20);
             this.usernameTextBox.TabIndex = 4;
             // 
-            // textBox1
+            // passwordTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(374, 228);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.passwordTextBox.Location = new System.Drawing.Point(374, 228);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(204, 20);
+            this.passwordTextBox.TabIndex = 5;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -111,7 +111,7 @@ namespace JustinTownleySoftwareII
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
@@ -131,7 +131,7 @@ namespace JustinTownleySoftwareII
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox usernameTextBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label label1;
     }
 }
