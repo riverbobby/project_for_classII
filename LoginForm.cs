@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Globalization;
 
 namespace JustinTownleySoftwareII
 {
@@ -27,28 +28,34 @@ namespace JustinTownleySoftwareII
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            bool invalid = false;
             if ((string.IsNullOrWhiteSpace(usernameTextBox.Text)) || (string.IsNullOrWhiteSpace(passwordTextBox.Text)))
             {
-                MessageBox.Show("Please enter a valid username and password\n");
+                invalid = true;
+                if (CultureInfo.CurrentUICulture.Name == "es-MX")
+                {
+                    MessageBox.Show("Ingrese un nombre de usuario y contraseña válidos\n");
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid username and password\n");
+                }
             }
             else
             {
                 try
                 {
                     Globals.conn.Open();
-                    MessageBox.Show("conn open");
                     // query to lookup userId and password
                     string sql = $"SELECT password, userId FROM user WHERE userName='{usernameTextBox.Text}'";
                     MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
-                    MessageBox.Show("rdr executed");
 
                     rdr.Read();
                     if (rdr.GetString(0) == passwordTextBox.Text)
                     {
                         rdr.Read();
                         Globals.CurrentUserID = rdr.GetInt32(1);
-                        MessageBox.Show($"{Globals.CurrentUserID} is loggin in...");
                         //append log of successful login
                         using (StreamWriter w = File.AppendText("logfile.txt"))
                         {
@@ -75,7 +82,15 @@ namespace JustinTownleySoftwareII
                     //}
                     else
                     {
-                        MessageBox.Show("Please enter a valid username and password\n");
+                        invalid = true;
+                        if (CultureInfo.CurrentUICulture.Name == "es-MX")
+                        {
+                            MessageBox.Show("Ingrese un nombre de usuario y contraseña válidos\n");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please enter a valid username and password\n");
+                        }
                     }
                     rdr.Close();
 
@@ -90,9 +105,26 @@ namespace JustinTownleySoftwareII
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error connecting to MySQL...");
+                    invalid = true;
+                    if (CultureInfo.CurrentUICulture.Name == "es-MX")
+                    {
+                        MessageBox.Show("Error al conectarse a MySQL...\n");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error connecting to MySQL...\n");
+                    }
                 }
                 Globals.conn.Close();
+
+            }
+            if (invalid)
+            {
+                using (StreamWriter w = File.AppendText("logfile.txt"))
+                {
+                    Globals.Log("Insuccessful login attempt.", w);
+                    w.Close();
+                }
 
             }
 
@@ -102,7 +134,7 @@ namespace JustinTownleySoftwareII
             //    Globals.Log("this is only a test!", w);
             //    w.Close();
             //}
-            
+
 
             //sample insert to MySQL
             //try

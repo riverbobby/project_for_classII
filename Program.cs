@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Globalization;
 
 namespace JustinTownleySoftwareII
 {
@@ -29,6 +30,8 @@ namespace JustinTownleySoftwareII
             //    MessageBox.Show("Error connecting to MySQL...");
             //}
             //Globals.conn.Close();
+
+            //setting local language from CultureInfo
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
