@@ -15,6 +15,8 @@ namespace JustinTownleySoftwareII
         public MainForm()
         {
             InitializeComponent();
+            dateTimePicker1.CustomFormat = "MM/yyyy";
+            dateTimePicker1.ShowUpDown = true;
         }
 
         private void logOutButton_Click(object sender, EventArgs e)
