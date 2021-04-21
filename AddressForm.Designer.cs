@@ -29,80 +29,80 @@ namespace JustinTownleySoftwareII
         /// </summary>
         private void InitializeComponent()
         {
-            this.addCustomerButton = new System.Windows.Forms.Button();
-            this.customerComboBox = new System.Windows.Forms.ComboBox();
-            this.contactTextBox = new System.Windows.Forms.TextBox();
-            this.locationTextBox = new System.Windows.Forms.TextBox();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.appointmentIdTextBox = new System.Windows.Forms.TextBox();
+            this.addCityButton = new System.Windows.Forms.Button();
+            this.cityComboBox = new System.Windows.Forms.ComboBox();
+            this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.postalCodeTextBox = new System.Windows.Forms.TextBox();
+            this.address2TextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.addressIdTextBox = new System.Windows.Forms.TextBox();
             this.updatedByLabel = new System.Windows.Forms.Label();
             this.LastUpdateOnLabel = new System.Windows.Forms.Label();
             this.createdByLabel = new System.Windows.Forms.Label();
             this.createdOnLabel = new System.Windows.Forms.Label();
-            this.contactLabel = new System.Windows.Forms.Label();
-            this.locationLabel = new System.Windows.Forms.Label();
-            this.descriptionLabel = new System.Windows.Forms.Label();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.customerLabel = new System.Windows.Forms.Label();
-            this.appointmentIdLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.phoneLabel = new System.Windows.Forms.Label();
+            this.postalCodeLabel = new System.Windows.Forms.Label();
+            this.cityLabel = new System.Windows.Forms.Label();
+            this.address2Label = new System.Windows.Forms.Label();
+            this.addressLabel = new System.Windows.Forms.Label();
+            this.addressIdLabel = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // addCustomerButton
+            // addCityButton
             // 
-            this.addCustomerButton.Location = new System.Drawing.Point(440, 138);
-            this.addCustomerButton.Name = "addCustomerButton";
-            this.addCustomerButton.Size = new System.Drawing.Size(75, 23);
-            this.addCustomerButton.TabIndex = 85;
-            this.addCustomerButton.Text = "add new";
-            this.addCustomerButton.UseVisualStyleBackColor = true;
+            this.addCityButton.Location = new System.Drawing.Point(440, 138);
+            this.addCityButton.Name = "addCityButton";
+            this.addCityButton.Size = new System.Drawing.Size(75, 23);
+            this.addCityButton.TabIndex = 85;
+            this.addCityButton.Text = "add new";
+            this.addCityButton.UseVisualStyleBackColor = true;
             // 
-            // customerComboBox
+            // cityComboBox
             // 
-            this.customerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.customerComboBox.FormattingEnabled = true;
-            this.customerComboBox.Location = new System.Drawing.Point(156, 138);
-            this.customerComboBox.Name = "customerComboBox";
-            this.customerComboBox.Size = new System.Drawing.Size(278, 21);
-            this.customerComboBox.TabIndex = 83;
+            this.cityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cityComboBox.FormattingEnabled = true;
+            this.cityComboBox.Location = new System.Drawing.Point(156, 138);
+            this.cityComboBox.Name = "cityComboBox";
+            this.cityComboBox.Size = new System.Drawing.Size(278, 21);
+            this.cityComboBox.TabIndex = 83;
             // 
-            // contactTextBox
+            // phoneTextBox
             // 
-            this.contactTextBox.Location = new System.Drawing.Point(156, 220);
-            this.contactTextBox.Name = "contactTextBox";
-            this.contactTextBox.Size = new System.Drawing.Size(359, 20);
-            this.contactTextBox.TabIndex = 82;
+            this.phoneTextBox.Location = new System.Drawing.Point(156, 220);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(359, 20);
+            this.phoneTextBox.TabIndex = 82;
             // 
-            // locationTextBox
+            // postalCodeTextBox
             // 
-            this.locationTextBox.Location = new System.Drawing.Point(156, 178);
-            this.locationTextBox.Name = "locationTextBox";
-            this.locationTextBox.Size = new System.Drawing.Size(359, 20);
-            this.locationTextBox.TabIndex = 81;
+            this.postalCodeTextBox.Location = new System.Drawing.Point(156, 178);
+            this.postalCodeTextBox.Name = "postalCodeTextBox";
+            this.postalCodeTextBox.Size = new System.Drawing.Size(359, 20);
+            this.postalCodeTextBox.TabIndex = 81;
             // 
-            // descriptionTextBox
+            // address2TextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(156, 94);
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(359, 20);
-            this.descriptionTextBox.TabIndex = 80;
+            this.address2TextBox.Location = new System.Drawing.Point(156, 94);
+            this.address2TextBox.Name = "address2TextBox";
+            this.address2TextBox.Size = new System.Drawing.Size(359, 20);
+            this.address2TextBox.TabIndex = 80;
             // 
-            // titleTextBox
+            // addressTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(156, 57);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(359, 20);
-            this.titleTextBox.TabIndex = 79;
+            this.addressTextBox.Location = new System.Drawing.Point(156, 57);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(359, 20);
+            this.addressTextBox.TabIndex = 79;
             // 
-            // appointmentIdTextBox
+            // addressIdTextBox
             // 
-            this.appointmentIdTextBox.Location = new System.Drawing.Point(156, 14);
-            this.appointmentIdTextBox.Name = "appointmentIdTextBox";
-            this.appointmentIdTextBox.ReadOnly = true;
-            this.appointmentIdTextBox.Size = new System.Drawing.Size(359, 20);
-            this.appointmentIdTextBox.TabIndex = 78;
+            this.addressIdTextBox.Location = new System.Drawing.Point(156, 14);
+            this.addressIdTextBox.Name = "addressIdTextBox";
+            this.addressIdTextBox.ReadOnly = true;
+            this.addressIdTextBox.Size = new System.Drawing.Size(359, 20);
+            this.addressIdTextBox.TabIndex = 78;
             // 
             // updatedByLabel
             // 
@@ -144,110 +144,110 @@ namespace JustinTownleySoftwareII
             this.createdOnLabel.TabIndex = 74;
             this.createdOnLabel.Text = "x";
             // 
-            // contactLabel
+            // phoneLabel
             // 
-            this.contactLabel.AutoSize = true;
-            this.contactLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactLabel.Location = new System.Drawing.Point(16, 220);
-            this.contactLabel.Name = "contactLabel";
-            this.contactLabel.Size = new System.Drawing.Size(115, 20);
-            this.contactLabel.TabIndex = 73;
-            this.contactLabel.Text = "Phone Number";
+            this.phoneLabel.AutoSize = true;
+            this.phoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneLabel.Location = new System.Drawing.Point(16, 220);
+            this.phoneLabel.Name = "phoneLabel";
+            this.phoneLabel.Size = new System.Drawing.Size(115, 20);
+            this.phoneLabel.TabIndex = 73;
+            this.phoneLabel.Text = "Phone Number";
             // 
-            // locationLabel
+            // postalCodeLabel
             // 
-            this.locationLabel.AutoSize = true;
-            this.locationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locationLabel.Location = new System.Drawing.Point(36, 178);
-            this.locationLabel.Name = "locationLabel";
-            this.locationLabel.Size = new System.Drawing.Size(95, 20);
-            this.locationLabel.TabIndex = 72;
-            this.locationLabel.Text = "Postal Code";
+            this.postalCodeLabel.AutoSize = true;
+            this.postalCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.postalCodeLabel.Location = new System.Drawing.Point(36, 178);
+            this.postalCodeLabel.Name = "postalCodeLabel";
+            this.postalCodeLabel.Size = new System.Drawing.Size(95, 20);
+            this.postalCodeLabel.TabIndex = 72;
+            this.postalCodeLabel.Text = "Postal Code";
             // 
-            // descriptionLabel
+            // cityLabel
             // 
-            this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(96, 136);
-            this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(35, 20);
-            this.descriptionLabel.TabIndex = 71;
-            this.descriptionLabel.Text = "City";
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityLabel.Location = new System.Drawing.Point(96, 136);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(35, 20);
+            this.cityLabel.TabIndex = 71;
+            this.cityLabel.Text = "City";
             // 
-            // titleLabel
+            // address2Label
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(50, 94);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(81, 20);
-            this.titleLabel.TabIndex = 70;
-            this.titleLabel.Text = "Address 2";
+            this.address2Label.AutoSize = true;
+            this.address2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.address2Label.Location = new System.Drawing.Point(50, 94);
+            this.address2Label.Name = "address2Label";
+            this.address2Label.Size = new System.Drawing.Size(81, 20);
+            this.address2Label.TabIndex = 70;
+            this.address2Label.Text = "Address 2";
             // 
-            // customerLabel
+            // addressLabel
             // 
-            this.customerLabel.AutoSize = true;
-            this.customerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerLabel.Location = new System.Drawing.Point(63, 57);
-            this.customerLabel.Name = "customerLabel";
-            this.customerLabel.Size = new System.Drawing.Size(68, 20);
-            this.customerLabel.TabIndex = 69;
-            this.customerLabel.Text = "Address";
+            this.addressLabel.AutoSize = true;
+            this.addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressLabel.Location = new System.Drawing.Point(63, 57);
+            this.addressLabel.Name = "addressLabel";
+            this.addressLabel.Size = new System.Drawing.Size(68, 20);
+            this.addressLabel.TabIndex = 69;
+            this.addressLabel.Text = "Address";
             // 
-            // appointmentIdLabel
+            // addressIdLabel
             // 
-            this.appointmentIdLabel.AutoSize = true;
-            this.appointmentIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appointmentIdLabel.Location = new System.Drawing.Point(42, 14);
-            this.appointmentIdLabel.Name = "appointmentIdLabel";
-            this.appointmentIdLabel.Size = new System.Drawing.Size(89, 20);
-            this.appointmentIdLabel.TabIndex = 68;
-            this.appointmentIdLabel.Text = "Address ID";
+            this.addressIdLabel.AutoSize = true;
+            this.addressIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressIdLabel.Location = new System.Drawing.Point(42, 14);
+            this.addressIdLabel.Name = "addressIdLabel";
+            this.addressIdLabel.Size = new System.Drawing.Size(89, 20);
+            this.addressIdLabel.TabIndex = 68;
+            this.addressIdLabel.Text = "Address ID";
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(92, 379);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 58);
-            this.button1.TabIndex = 67;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Location = new System.Drawing.Point(92, 379);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(136, 58);
+            this.saveButton.TabIndex = 67;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // cancelButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(263, 379);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 58);
-            this.button3.TabIndex = 66;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(263, 379);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(136, 58);
+            this.cancelButton.TabIndex = 66;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // AddressForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 467);
-            this.Controls.Add(this.addCustomerButton);
-            this.Controls.Add(this.customerComboBox);
-            this.Controls.Add(this.contactTextBox);
-            this.Controls.Add(this.locationTextBox);
-            this.Controls.Add(this.descriptionTextBox);
-            this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.appointmentIdTextBox);
+            this.Controls.Add(this.addCityButton);
+            this.Controls.Add(this.cityComboBox);
+            this.Controls.Add(this.phoneTextBox);
+            this.Controls.Add(this.postalCodeTextBox);
+            this.Controls.Add(this.address2TextBox);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.addressIdTextBox);
             this.Controls.Add(this.updatedByLabel);
             this.Controls.Add(this.LastUpdateOnLabel);
             this.Controls.Add(this.createdByLabel);
             this.Controls.Add(this.createdOnLabel);
-            this.Controls.Add(this.contactLabel);
-            this.Controls.Add(this.locationLabel);
-            this.Controls.Add(this.descriptionLabel);
-            this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.customerLabel);
-            this.Controls.Add(this.appointmentIdLabel);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.phoneLabel);
+            this.Controls.Add(this.postalCodeLabel);
+            this.Controls.Add(this.cityLabel);
+            this.Controls.Add(this.address2Label);
+            this.Controls.Add(this.addressLabel);
+            this.Controls.Add(this.addressIdLabel);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.cancelButton);
             this.Name = "AddressForm";
             this.Text = "AddressForm";
             this.ResumeLayout(false);
@@ -257,24 +257,24 @@ namespace JustinTownleySoftwareII
 
         #endregion
 
-        private System.Windows.Forms.Button addCustomerButton;
-        private System.Windows.Forms.ComboBox customerComboBox;
-        private System.Windows.Forms.TextBox contactTextBox;
-        private System.Windows.Forms.TextBox locationTextBox;
-        private System.Windows.Forms.TextBox descriptionTextBox;
-        private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox appointmentIdTextBox;
+        private System.Windows.Forms.Button addCityButton;
+        private System.Windows.Forms.ComboBox cityComboBox;
+        private System.Windows.Forms.TextBox phoneTextBox;
+        private System.Windows.Forms.TextBox postalCodeTextBox;
+        private System.Windows.Forms.TextBox address2TextBox;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.TextBox addressIdTextBox;
         private System.Windows.Forms.Label updatedByLabel;
         private System.Windows.Forms.Label LastUpdateOnLabel;
         private System.Windows.Forms.Label createdByLabel;
         private System.Windows.Forms.Label createdOnLabel;
-        private System.Windows.Forms.Label contactLabel;
-        private System.Windows.Forms.Label locationLabel;
-        private System.Windows.Forms.Label descriptionLabel;
-        private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label customerLabel;
-        private System.Windows.Forms.Label appointmentIdLabel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label phoneLabel;
+        private System.Windows.Forms.Label postalCodeLabel;
+        private System.Windows.Forms.Label cityLabel;
+        private System.Windows.Forms.Label address2Label;
+        private System.Windows.Forms.Label addressLabel;
+        private System.Windows.Forms.Label addressIdLabel;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

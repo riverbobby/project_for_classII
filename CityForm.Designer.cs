@@ -29,53 +29,53 @@ namespace JustinTownleySoftwareII
         /// </summary>
         private void InitializeComponent()
         {
-            this.addCustomerButton = new System.Windows.Forms.Button();
-            this.customerComboBox = new System.Windows.Forms.ComboBox();
-            this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.appointmentIdTextBox = new System.Windows.Forms.TextBox();
+            this.addCountryButton = new System.Windows.Forms.Button();
+            this.countryComboBox = new System.Windows.Forms.ComboBox();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
+            this.cityIdTextBox = new System.Windows.Forms.TextBox();
             this.updatedByLabel = new System.Windows.Forms.Label();
             this.LastUpdateOnLabel = new System.Windows.Forms.Label();
             this.createdByLabel = new System.Windows.Forms.Label();
             this.createdOnLabel = new System.Windows.Forms.Label();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.customerLabel = new System.Windows.Forms.Label();
-            this.appointmentIdLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.countryLabel = new System.Windows.Forms.Label();
+            this.cityLabel = new System.Windows.Forms.Label();
+            this.cityIdLabel = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // addCustomerButton
+            // addCountryButton
             // 
-            this.addCustomerButton.Location = new System.Drawing.Point(436, 94);
-            this.addCustomerButton.Name = "addCustomerButton";
-            this.addCustomerButton.Size = new System.Drawing.Size(75, 23);
-            this.addCustomerButton.TabIndex = 85;
-            this.addCustomerButton.Text = "add new";
-            this.addCustomerButton.UseVisualStyleBackColor = true;
+            this.addCountryButton.Location = new System.Drawing.Point(436, 94);
+            this.addCountryButton.Name = "addCountryButton";
+            this.addCountryButton.Size = new System.Drawing.Size(75, 23);
+            this.addCountryButton.TabIndex = 85;
+            this.addCountryButton.Text = "add new";
+            this.addCountryButton.UseVisualStyleBackColor = true;
             // 
-            // customerComboBox
+            // countryComboBox
             // 
-            this.customerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.customerComboBox.FormattingEnabled = true;
-            this.customerComboBox.Location = new System.Drawing.Point(152, 94);
-            this.customerComboBox.Name = "customerComboBox";
-            this.customerComboBox.Size = new System.Drawing.Size(278, 21);
-            this.customerComboBox.TabIndex = 83;
+            this.countryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.countryComboBox.FormattingEnabled = true;
+            this.countryComboBox.Location = new System.Drawing.Point(152, 94);
+            this.countryComboBox.Name = "countryComboBox";
+            this.countryComboBox.Size = new System.Drawing.Size(278, 21);
+            this.countryComboBox.TabIndex = 83;
             // 
-            // titleTextBox
+            // cityTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(152, 58);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(359, 20);
-            this.titleTextBox.TabIndex = 79;
+            this.cityTextBox.Location = new System.Drawing.Point(152, 58);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(359, 20);
+            this.cityTextBox.TabIndex = 79;
             // 
-            // appointmentIdTextBox
+            // cityIdTextBox
             // 
-            this.appointmentIdTextBox.Location = new System.Drawing.Point(152, 15);
-            this.appointmentIdTextBox.Name = "appointmentIdTextBox";
-            this.appointmentIdTextBox.ReadOnly = true;
-            this.appointmentIdTextBox.Size = new System.Drawing.Size(359, 20);
-            this.appointmentIdTextBox.TabIndex = 78;
+            this.cityIdTextBox.Location = new System.Drawing.Point(152, 15);
+            this.cityIdTextBox.Name = "cityIdTextBox";
+            this.cityIdTextBox.ReadOnly = true;
+            this.cityIdTextBox.Size = new System.Drawing.Size(359, 20);
+            this.cityIdTextBox.TabIndex = 78;
             // 
             // updatedByLabel
             // 
@@ -117,74 +117,74 @@ namespace JustinTownleySoftwareII
             this.createdOnLabel.TabIndex = 74;
             this.createdOnLabel.Text = "x";
             // 
-            // titleLabel
+            // countryLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(68, 94);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(64, 20);
-            this.titleLabel.TabIndex = 70;
-            this.titleLabel.Text = "Country";
+            this.countryLabel.AutoSize = true;
+            this.countryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.countryLabel.Location = new System.Drawing.Point(68, 94);
+            this.countryLabel.Name = "countryLabel";
+            this.countryLabel.Size = new System.Drawing.Size(64, 20);
+            this.countryLabel.TabIndex = 70;
+            this.countryLabel.Text = "Country";
             // 
-            // customerLabel
+            // cityLabel
             // 
-            this.customerLabel.AutoSize = true;
-            this.customerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerLabel.Location = new System.Drawing.Point(97, 56);
-            this.customerLabel.Name = "customerLabel";
-            this.customerLabel.Size = new System.Drawing.Size(35, 20);
-            this.customerLabel.TabIndex = 69;
-            this.customerLabel.Text = "City";
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityLabel.Location = new System.Drawing.Point(97, 56);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(35, 20);
+            this.cityLabel.TabIndex = 69;
+            this.cityLabel.Text = "City";
             // 
-            // appointmentIdLabel
+            // cityIdLabel
             // 
-            this.appointmentIdLabel.AutoSize = true;
-            this.appointmentIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appointmentIdLabel.Location = new System.Drawing.Point(76, 15);
-            this.appointmentIdLabel.Name = "appointmentIdLabel";
-            this.appointmentIdLabel.Size = new System.Drawing.Size(56, 20);
-            this.appointmentIdLabel.TabIndex = 68;
-            this.appointmentIdLabel.Text = "City ID";
+            this.cityIdLabel.AutoSize = true;
+            this.cityIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityIdLabel.Location = new System.Drawing.Point(76, 15);
+            this.cityIdLabel.Name = "cityIdLabel";
+            this.cityIdLabel.Size = new System.Drawing.Size(56, 20);
+            this.cityIdLabel.TabIndex = 68;
+            this.cityIdLabel.Text = "City ID";
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(101, 251);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 58);
-            this.button1.TabIndex = 67;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Location = new System.Drawing.Point(101, 251);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(136, 58);
+            this.saveButton.TabIndex = 67;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // cancelButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(272, 251);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 58);
-            this.button3.TabIndex = 66;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(272, 251);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(136, 58);
+            this.cancelButton.TabIndex = 66;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // CityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 338);
-            this.Controls.Add(this.addCustomerButton);
-            this.Controls.Add(this.customerComboBox);
-            this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.appointmentIdTextBox);
+            this.Controls.Add(this.addCountryButton);
+            this.Controls.Add(this.countryComboBox);
+            this.Controls.Add(this.cityTextBox);
+            this.Controls.Add(this.cityIdTextBox);
             this.Controls.Add(this.updatedByLabel);
             this.Controls.Add(this.LastUpdateOnLabel);
             this.Controls.Add(this.createdByLabel);
             this.Controls.Add(this.createdOnLabel);
-            this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.customerLabel);
-            this.Controls.Add(this.appointmentIdLabel);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.countryLabel);
+            this.Controls.Add(this.cityLabel);
+            this.Controls.Add(this.cityIdLabel);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.cancelButton);
             this.Name = "CityForm";
             this.Text = "CityForm";
             this.ResumeLayout(false);
@@ -194,18 +194,18 @@ namespace JustinTownleySoftwareII
 
         #endregion
 
-        private System.Windows.Forms.Button addCustomerButton;
-        private System.Windows.Forms.ComboBox customerComboBox;
-        private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox appointmentIdTextBox;
+        private System.Windows.Forms.Button addCountryButton;
+        private System.Windows.Forms.ComboBox countryComboBox;
+        private System.Windows.Forms.TextBox cityTextBox;
+        private System.Windows.Forms.TextBox cityIdTextBox;
         private System.Windows.Forms.Label updatedByLabel;
         private System.Windows.Forms.Label LastUpdateOnLabel;
         private System.Windows.Forms.Label createdByLabel;
         private System.Windows.Forms.Label createdOnLabel;
-        private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label customerLabel;
-        private System.Windows.Forms.Label appointmentIdLabel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label countryLabel;
+        private System.Windows.Forms.Label cityLabel;
+        private System.Windows.Forms.Label cityIdLabel;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

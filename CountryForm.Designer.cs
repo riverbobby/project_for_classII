@@ -29,32 +29,32 @@ namespace JustinTownleySoftwareII
         /// </summary>
         private void InitializeComponent()
         {
-            this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.appointmentIdTextBox = new System.Windows.Forms.TextBox();
+            this.countryTextBox = new System.Windows.Forms.TextBox();
+            this.countryIdTextBox = new System.Windows.Forms.TextBox();
             this.updatedByLabel = new System.Windows.Forms.Label();
             this.LastUpdateOnLabel = new System.Windows.Forms.Label();
             this.createdByLabel = new System.Windows.Forms.Label();
             this.createdOnLabel = new System.Windows.Forms.Label();
-            this.customerLabel = new System.Windows.Forms.Label();
-            this.appointmentIdLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.countryLabel = new System.Windows.Forms.Label();
+            this.countryIdLabel = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // titleTextBox
+            // countryTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(156, 53);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(359, 20);
-            this.titleTextBox.TabIndex = 79;
+            this.countryTextBox.Location = new System.Drawing.Point(156, 53);
+            this.countryTextBox.Name = "countryTextBox";
+            this.countryTextBox.Size = new System.Drawing.Size(359, 20);
+            this.countryTextBox.TabIndex = 79;
             // 
-            // appointmentIdTextBox
+            // countryIdTextBox
             // 
-            this.appointmentIdTextBox.Location = new System.Drawing.Point(156, 10);
-            this.appointmentIdTextBox.Name = "appointmentIdTextBox";
-            this.appointmentIdTextBox.ReadOnly = true;
-            this.appointmentIdTextBox.Size = new System.Drawing.Size(359, 20);
-            this.appointmentIdTextBox.TabIndex = 78;
+            this.countryIdTextBox.Location = new System.Drawing.Point(156, 10);
+            this.countryIdTextBox.Name = "countryIdTextBox";
+            this.countryIdTextBox.ReadOnly = true;
+            this.countryIdTextBox.Size = new System.Drawing.Size(359, 20);
+            this.countryIdTextBox.TabIndex = 78;
             // 
             // updatedByLabel
             // 
@@ -96,61 +96,61 @@ namespace JustinTownleySoftwareII
             this.createdOnLabel.TabIndex = 74;
             this.createdOnLabel.Text = "x";
             // 
-            // customerLabel
+            // countryLabel
             // 
-            this.customerLabel.AutoSize = true;
-            this.customerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerLabel.Location = new System.Drawing.Point(80, 51);
-            this.customerLabel.Name = "customerLabel";
-            this.customerLabel.Size = new System.Drawing.Size(64, 20);
-            this.customerLabel.TabIndex = 69;
-            this.customerLabel.Text = "Country";
+            this.countryLabel.AutoSize = true;
+            this.countryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.countryLabel.Location = new System.Drawing.Point(80, 51);
+            this.countryLabel.Name = "countryLabel";
+            this.countryLabel.Size = new System.Drawing.Size(64, 20);
+            this.countryLabel.TabIndex = 69;
+            this.countryLabel.Text = "Country";
             // 
-            // appointmentIdLabel
+            // countryIdLabel
             // 
-            this.appointmentIdLabel.AutoSize = true;
-            this.appointmentIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appointmentIdLabel.Location = new System.Drawing.Point(59, 10);
-            this.appointmentIdLabel.Name = "appointmentIdLabel";
-            this.appointmentIdLabel.Size = new System.Drawing.Size(85, 20);
-            this.appointmentIdLabel.TabIndex = 68;
-            this.appointmentIdLabel.Text = "Country ID";
+            this.countryIdLabel.AutoSize = true;
+            this.countryIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.countryIdLabel.Location = new System.Drawing.Point(59, 10);
+            this.countryIdLabel.Name = "countryIdLabel";
+            this.countryIdLabel.Size = new System.Drawing.Size(85, 20);
+            this.countryIdLabel.TabIndex = 68;
+            this.countryIdLabel.Text = "Country ID";
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(97, 207);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 58);
-            this.button1.TabIndex = 67;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Location = new System.Drawing.Point(97, 207);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(136, 58);
+            this.saveButton.TabIndex = 67;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // cancelButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(268, 207);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 58);
-            this.button3.TabIndex = 66;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(268, 207);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(136, 58);
+            this.cancelButton.TabIndex = 66;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // CountryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 297);
-            this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.appointmentIdTextBox);
+            this.Controls.Add(this.countryTextBox);
+            this.Controls.Add(this.countryIdTextBox);
             this.Controls.Add(this.updatedByLabel);
             this.Controls.Add(this.LastUpdateOnLabel);
             this.Controls.Add(this.createdByLabel);
             this.Controls.Add(this.createdOnLabel);
-            this.Controls.Add(this.customerLabel);
-            this.Controls.Add(this.appointmentIdLabel);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.countryLabel);
+            this.Controls.Add(this.countryIdLabel);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.cancelButton);
             this.Name = "CountryForm";
             this.Text = "CountryForm";
             this.ResumeLayout(false);
@@ -159,15 +159,15 @@ namespace JustinTownleySoftwareII
         }
 
         #endregion
-        private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox appointmentIdTextBox;
+        private System.Windows.Forms.TextBox countryTextBox;
+        private System.Windows.Forms.TextBox countryIdTextBox;
         private System.Windows.Forms.Label updatedByLabel;
         private System.Windows.Forms.Label LastUpdateOnLabel;
         private System.Windows.Forms.Label createdByLabel;
         private System.Windows.Forms.Label createdOnLabel;
-        private System.Windows.Forms.Label customerLabel;
-        private System.Windows.Forms.Label appointmentIdLabel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label countryLabel;
+        private System.Windows.Forms.Label countryIdLabel;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

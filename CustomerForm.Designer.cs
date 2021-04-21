@@ -29,85 +29,85 @@ namespace JustinTownleySoftwareII
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.addCustomerButton = new System.Windows.Forms.Button();
-            this.updateCustomerButton = new System.Windows.Forms.Button();
-            this.customerComboBox = new System.Windows.Forms.ComboBox();
-            this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.appointmentIdTextBox = new System.Windows.Forms.TextBox();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.addAddressButton = new System.Windows.Forms.Button();
+            this.updateAddressButton = new System.Windows.Forms.Button();
+            this.addressComboBox = new System.Windows.Forms.ComboBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.customerIdTextBox = new System.Windows.Forms.TextBox();
             this.updatedByLabel = new System.Windows.Forms.Label();
             this.LastUpdateOnLabel = new System.Windows.Forms.Label();
             this.createdByLabel = new System.Windows.Forms.Label();
             this.createdOnLabel = new System.Windows.Forms.Label();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.customerLabel = new System.Windows.Forms.Label();
-            this.appointmentIdLabel = new System.Windows.Forms.Label();
-            this.descriptionLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.addressLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.customerIdLabel = new System.Windows.Forms.Label();
+            this.activeLabel = new System.Windows.Forms.Label();
+            this.activeComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // button3
+            // cancelButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(287, 300);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 58);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(287, 300);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(136, 58);
+            this.cancelButton.TabIndex = 7;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(116, 300);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 58);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Location = new System.Drawing.Point(116, 300);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(136, 58);
+            this.saveButton.TabIndex = 8;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
             // 
-            // addCustomerButton
+            // addAddressButton
             // 
-            this.addCustomerButton.Location = new System.Drawing.Point(459, 101);
-            this.addCustomerButton.Name = "addCustomerButton";
-            this.addCustomerButton.Size = new System.Drawing.Size(75, 23);
-            this.addCustomerButton.TabIndex = 65;
-            this.addCustomerButton.Text = "add new";
-            this.addCustomerButton.UseVisualStyleBackColor = true;
+            this.addAddressButton.Location = new System.Drawing.Point(459, 101);
+            this.addAddressButton.Name = "addAddressButton";
+            this.addAddressButton.Size = new System.Drawing.Size(75, 23);
+            this.addAddressButton.TabIndex = 65;
+            this.addAddressButton.Text = "add new";
+            this.addAddressButton.UseVisualStyleBackColor = true;
             // 
-            // updateCustomerButton
+            // updateAddressButton
             // 
-            this.updateCustomerButton.Location = new System.Drawing.Point(378, 101);
-            this.updateCustomerButton.Name = "updateCustomerButton";
-            this.updateCustomerButton.Size = new System.Drawing.Size(75, 23);
-            this.updateCustomerButton.TabIndex = 64;
-            this.updateCustomerButton.Text = "update";
-            this.updateCustomerButton.UseVisualStyleBackColor = true;
+            this.updateAddressButton.Location = new System.Drawing.Point(378, 101);
+            this.updateAddressButton.Name = "updateAddressButton";
+            this.updateAddressButton.Size = new System.Drawing.Size(75, 23);
+            this.updateAddressButton.TabIndex = 64;
+            this.updateAddressButton.Text = "update";
+            this.updateAddressButton.UseVisualStyleBackColor = true;
             // 
-            // customerComboBox
+            // addressComboBox
             // 
-            this.customerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.customerComboBox.FormattingEnabled = true;
-            this.customerComboBox.Location = new System.Drawing.Point(175, 101);
-            this.customerComboBox.Name = "customerComboBox";
-            this.customerComboBox.Size = new System.Drawing.Size(197, 21);
-            this.customerComboBox.TabIndex = 63;
+            this.addressComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.addressComboBox.FormattingEnabled = true;
+            this.addressComboBox.Location = new System.Drawing.Point(175, 101);
+            this.addressComboBox.Name = "addressComboBox";
+            this.addressComboBox.Size = new System.Drawing.Size(197, 21);
+            this.addressComboBox.TabIndex = 63;
             // 
-            // titleTextBox
+            // nameTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(175, 65);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(359, 20);
-            this.titleTextBox.TabIndex = 53;
+            this.nameTextBox.Location = new System.Drawing.Point(175, 65);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(359, 20);
+            this.nameTextBox.TabIndex = 53;
             // 
-            // appointmentIdTextBox
+            // customerIdTextBox
             // 
-            this.appointmentIdTextBox.Location = new System.Drawing.Point(175, 22);
-            this.appointmentIdTextBox.Name = "appointmentIdTextBox";
-            this.appointmentIdTextBox.ReadOnly = true;
-            this.appointmentIdTextBox.Size = new System.Drawing.Size(359, 20);
-            this.appointmentIdTextBox.TabIndex = 52;
+            this.customerIdTextBox.Location = new System.Drawing.Point(175, 22);
+            this.customerIdTextBox.Name = "customerIdTextBox";
+            this.customerIdTextBox.ReadOnly = true;
+            this.customerIdTextBox.Size = new System.Drawing.Size(359, 20);
+            this.customerIdTextBox.TabIndex = 52;
             // 
             // updatedByLabel
             // 
@@ -149,76 +149,76 @@ namespace JustinTownleySoftwareII
             this.createdOnLabel.TabIndex = 48;
             this.createdOnLabel.Text = "x";
             // 
-            // titleLabel
+            // addressLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(32, 102);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(118, 20);
-            this.titleLabel.TabIndex = 40;
-            this.titleLabel.Text = "Address/Phone";
+            this.addressLabel.AutoSize = true;
+            this.addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressLabel.Location = new System.Drawing.Point(32, 102);
+            this.addressLabel.Name = "addressLabel";
+            this.addressLabel.Size = new System.Drawing.Size(118, 20);
+            this.addressLabel.TabIndex = 40;
+            this.addressLabel.Text = "Address/Phone";
             // 
-            // customerLabel
+            // nameLabel
             // 
-            this.customerLabel.AutoSize = true;
-            this.customerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerLabel.Location = new System.Drawing.Point(99, 63);
-            this.customerLabel.Name = "customerLabel";
-            this.customerLabel.Size = new System.Drawing.Size(51, 20);
-            this.customerLabel.TabIndex = 39;
-            this.customerLabel.Text = "Name";
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(99, 63);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(51, 20);
+            this.nameLabel.TabIndex = 39;
+            this.nameLabel.Text = "Name";
             // 
-            // appointmentIdLabel
+            // customerIdLabel
             // 
-            this.appointmentIdLabel.AutoSize = true;
-            this.appointmentIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appointmentIdLabel.Location = new System.Drawing.Point(51, 22);
-            this.appointmentIdLabel.Name = "appointmentIdLabel";
-            this.appointmentIdLabel.Size = new System.Drawing.Size(99, 20);
-            this.appointmentIdLabel.TabIndex = 38;
-            this.appointmentIdLabel.Text = "Customer ID";
+            this.customerIdLabel.AutoSize = true;
+            this.customerIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerIdLabel.Location = new System.Drawing.Point(51, 22);
+            this.customerIdLabel.Name = "customerIdLabel";
+            this.customerIdLabel.Size = new System.Drawing.Size(99, 20);
+            this.customerIdLabel.TabIndex = 38;
+            this.customerIdLabel.Text = "Customer ID";
             // 
-            // descriptionLabel
+            // activeLabel
             // 
-            this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(98, 147);
-            this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(52, 20);
-            this.descriptionLabel.TabIndex = 41;
-            this.descriptionLabel.Text = "Active";
+            this.activeLabel.AutoSize = true;
+            this.activeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activeLabel.Location = new System.Drawing.Point(98, 147);
+            this.activeLabel.Name = "activeLabel";
+            this.activeLabel.Size = new System.Drawing.Size(52, 20);
+            this.activeLabel.TabIndex = 41;
+            this.activeLabel.Text = "Active";
             // 
-            // comboBox1
+            // activeComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(175, 146);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(197, 21);
-            this.comboBox1.TabIndex = 66;
+            this.activeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.activeComboBox.FormattingEnabled = true;
+            this.activeComboBox.Location = new System.Drawing.Point(175, 146);
+            this.activeComboBox.Name = "activeComboBox";
+            this.activeComboBox.Size = new System.Drawing.Size(197, 21);
+            this.activeComboBox.TabIndex = 66;
             // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 396);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.addCustomerButton);
-            this.Controls.Add(this.updateCustomerButton);
-            this.Controls.Add(this.customerComboBox);
-            this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.appointmentIdTextBox);
+            this.Controls.Add(this.activeComboBox);
+            this.Controls.Add(this.addAddressButton);
+            this.Controls.Add(this.updateAddressButton);
+            this.Controls.Add(this.addressComboBox);
+            this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(this.customerIdTextBox);
             this.Controls.Add(this.updatedByLabel);
             this.Controls.Add(this.LastUpdateOnLabel);
             this.Controls.Add(this.createdByLabel);
             this.Controls.Add(this.createdOnLabel);
-            this.Controls.Add(this.descriptionLabel);
-            this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.customerLabel);
-            this.Controls.Add(this.appointmentIdLabel);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.activeLabel);
+            this.Controls.Add(this.addressLabel);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.customerIdLabel);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.cancelButton);
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
             this.ResumeLayout(false);
@@ -228,21 +228,21 @@ namespace JustinTownleySoftwareII
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button addCustomerButton;
-        private System.Windows.Forms.Button updateCustomerButton;
-        private System.Windows.Forms.ComboBox customerComboBox;
-        private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox appointmentIdTextBox;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button addAddressButton;
+        private System.Windows.Forms.Button updateAddressButton;
+        private System.Windows.Forms.ComboBox addressComboBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox customerIdTextBox;
         private System.Windows.Forms.Label updatedByLabel;
         private System.Windows.Forms.Label LastUpdateOnLabel;
         private System.Windows.Forms.Label createdByLabel;
         private System.Windows.Forms.Label createdOnLabel;
-        private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label customerLabel;
-        private System.Windows.Forms.Label appointmentIdLabel;
-        private System.Windows.Forms.Label descriptionLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label addressLabel;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label customerIdLabel;
+        private System.Windows.Forms.Label activeLabel;
+        private System.Windows.Forms.ComboBox activeComboBox;
     }
 }
