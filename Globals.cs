@@ -11,7 +11,8 @@ namespace JustinTownleySoftwareII
 {
     static class Globals
     {
-        public static int CurrentUserID { get; set; }
+        public static User CurrentUser { get; set; }
+        public static Country CurrentCountry { get; set; }
         public static int CurrentAppointmentID { get; set; }
         public static int CurrentCustomerID { get; set; }
         public static int CurrentAddressID { get; set; }

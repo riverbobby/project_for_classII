@@ -25,5 +25,12 @@ namespace JustinTownleySoftwareII
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
+
+        private void testingButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CityForm cityForm = new CityForm();
+            cityForm.Show();
+        }
     }
 }

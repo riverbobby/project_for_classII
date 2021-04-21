@@ -47,7 +47,7 @@ namespace JustinTownleySoftwareII
                 {
                     Globals.conn.Open();
                     // query to lookup userId and password
-                    string sql = $"SELECT password, userId FROM user WHERE userName='{usernameTextBox.Text}'";
+                    string sql = $"SELECT password, userId, userName FROM user WHERE userName='{usernameTextBox.Text}'";
                     MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -55,11 +55,14 @@ namespace JustinTownleySoftwareII
                     if (rdr.GetString(0) == passwordTextBox.Text)
                     {
                         rdr.Read();
-                        Globals.CurrentUserID = rdr.GetInt32(1);
+                        int userID = rdr.GetInt32(1);
+                        rdr.Read();
+                        string userName = rdr.GetString(2);
+                        Globals.CurrentUser = new User(userID, userName);
                         //append log of successful login
                         using (StreamWriter w = File.AppendText("logfile.txt"))
                         {
-                            Globals.Log($"User # {Globals.CurrentUserID} has successfully logged in.", w);
+                            Globals.Log($"User # {Globals.CurrentUser.UserID}--{Globals.CurrentUser.UserName} has successfully logged in.", w);
                             w.Close();
                         }
                         rdr.Close();

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace JustinTownleySoftwareII
 {
@@ -15,6 +16,32 @@ namespace JustinTownleySoftwareII
         public CityForm()
         {
             InitializeComponent();
+            Globals.CurrentCountryID = -1;
+            //populating countries combobox
+            BindingList<Country> countries = new BindingList<Country>();
+            try
+            {
+                MessageBox.Show("Connecting to MySQL database");
+                Globals.conn.Open();
+                // Perform databaase operations
+                string sql = "SELECT * FROM country";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    countries.Add(new Country(rdr.GetInt32(0), rdr.GetString(1),
+                        rdr.GetDateTime(2), rdr.GetString(3), rdr.GetDateTime(4), rdr.GetString(5)));
+
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to MySQL...");
+            }
+            Globals.conn.Close();
+            MessageBox.Show("Done");
+            countryComboBox.DataSource = countries;
         }
     }
 }
