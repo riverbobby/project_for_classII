@@ -31,10 +31,6 @@ namespace JustinTownleySoftwareII
         {
             this.countryTextBox = new System.Windows.Forms.TextBox();
             this.countryIdTextBox = new System.Windows.Forms.TextBox();
-            this.updatedByLabel = new System.Windows.Forms.Label();
-            this.LastUpdateOnLabel = new System.Windows.Forms.Label();
-            this.createdByLabel = new System.Windows.Forms.Label();
-            this.createdOnLabel = new System.Windows.Forms.Label();
             this.countryLabel = new System.Windows.Forms.Label();
             this.countryIdLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
@@ -55,46 +51,7 @@ namespace JustinTownleySoftwareII
             this.countryIdTextBox.ReadOnly = true;
             this.countryIdTextBox.Size = new System.Drawing.Size(359, 20);
             this.countryIdTextBox.TabIndex = 78;
-            // 
-            // updatedByLabel
-            // 
-            this.updatedByLabel.AutoSize = true;
-            this.updatedByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updatedByLabel.Location = new System.Drawing.Point(217, 152);
-            this.updatedByLabel.Name = "updatedByLabel";
-            this.updatedByLabel.Size = new System.Drawing.Size(16, 20);
-            this.updatedByLabel.TabIndex = 77;
-            this.updatedByLabel.Text = "x";
-            // 
-            // LastUpdateOnLabel
-            // 
-            this.LastUpdateOnLabel.AutoSize = true;
-            this.LastUpdateOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastUpdateOnLabel.Location = new System.Drawing.Point(37, 152);
-            this.LastUpdateOnLabel.Name = "LastUpdateOnLabel";
-            this.LastUpdateOnLabel.Size = new System.Drawing.Size(16, 20);
-            this.LastUpdateOnLabel.TabIndex = 76;
-            this.LastUpdateOnLabel.Text = "x";
-            // 
-            // createdByLabel
-            // 
-            this.createdByLabel.AutoSize = true;
-            this.createdByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createdByLabel.Location = new System.Drawing.Point(217, 98);
-            this.createdByLabel.Name = "createdByLabel";
-            this.createdByLabel.Size = new System.Drawing.Size(16, 20);
-            this.createdByLabel.TabIndex = 75;
-            this.createdByLabel.Text = "x";
-            // 
-            // createdOnLabel
-            // 
-            this.createdOnLabel.AutoSize = true;
-            this.createdOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createdOnLabel.Location = new System.Drawing.Point(37, 98);
-            this.createdOnLabel.Name = "createdOnLabel";
-            this.createdOnLabel.Size = new System.Drawing.Size(16, 20);
-            this.createdOnLabel.TabIndex = 74;
-            this.createdOnLabel.Text = "x";
+            this.countryIdTextBox.Text = "generated when saved";
             // 
             // countryLabel
             // 
@@ -119,40 +76,38 @@ namespace JustinTownleySoftwareII
             // saveButton
             // 
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(97, 207);
+            this.saveButton.Location = new System.Drawing.Point(106, 94);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(136, 58);
             this.saveButton.TabIndex = 67;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(268, 207);
+            this.cancelButton.Location = new System.Drawing.Point(277, 94);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(136, 58);
             this.cancelButton.TabIndex = 66;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // CountryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 297);
+            this.ClientSize = new System.Drawing.Size(534, 172);
             this.Controls.Add(this.countryTextBox);
             this.Controls.Add(this.countryIdTextBox);
-            this.Controls.Add(this.updatedByLabel);
-            this.Controls.Add(this.LastUpdateOnLabel);
-            this.Controls.Add(this.createdByLabel);
-            this.Controls.Add(this.createdOnLabel);
             this.Controls.Add(this.countryLabel);
             this.Controls.Add(this.countryIdLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cancelButton);
             this.Name = "CountryForm";
-            this.Text = "CountryForm";
+            this.Text = "Country Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,10 +116,6 @@ namespace JustinTownleySoftwareII
         #endregion
         private System.Windows.Forms.TextBox countryTextBox;
         private System.Windows.Forms.TextBox countryIdTextBox;
-        private System.Windows.Forms.Label updatedByLabel;
-        private System.Windows.Forms.Label LastUpdateOnLabel;
-        private System.Windows.Forms.Label createdByLabel;
-        private System.Windows.Forms.Label createdOnLabel;
         private System.Windows.Forms.Label countryLabel;
         private System.Windows.Forms.Label countryIdLabel;
         private System.Windows.Forms.Button saveButton;

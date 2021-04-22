@@ -16,12 +16,10 @@ namespace JustinTownleySoftwareII
         public CityForm()
         {
             InitializeComponent();
-            Globals.CurrentCountryID = -1;
             //populating countries combobox
             BindingList<Country> countries = new BindingList<Country>();
             try
             {
-                MessageBox.Show("Connecting to MySQL database");
                 Globals.conn.Open();
                 // Perform databaase operations
                 string sql = "SELECT * FROM country";
@@ -40,8 +38,9 @@ namespace JustinTownleySoftwareII
                 MessageBox.Show("Error connecting to MySQL...");
             }
             Globals.conn.Close();
-            MessageBox.Show("Done");
             countryComboBox.DataSource = countries;
+            countryComboBox.DisplayMember = "CountryName";
+            countryComboBox.ValueMember = "CountryID";
         }
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="AppointmentForm.Designer.cs">
       <DependentUpon>AppointmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="City.cs" />
     <Compile Include="CityForm.cs">
       <SubType>Form</SubType>
     </Compile>

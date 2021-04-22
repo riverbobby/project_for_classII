@@ -16,5 +16,36 @@ namespace JustinTownleySoftwareII
         {
             InitializeComponent();
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CityForm cityForm = new CityForm();
+            cityForm.Show();
+        }
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(countryTextBox.Text))
+            {
+                MessageBox.Show("Please enter a valid country name");
+            }
+            else
+            {
+                DateTime theDate = DateTime.UtcNow;
+                string myBuilder = $"\'0\', \'{countryTextBox.Text}\', " +
+                    $"\'{Globals.toSqlDate(theDate)}\', \'{Globals.CurrentUser.UserName}\', " +
+                    $"\'{Globals.toSqlDate(theDate)}\', \'{Globals.CurrentUser.UserName}\'";
+                if (Globals.Insert($"country", myBuilder)) 
+                {
+                    this.Hide();
+                    CityForm cityForm = new CityForm();
+                    cityForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Unable to save at this time");
+                }
+            }
+        }
     }
 }

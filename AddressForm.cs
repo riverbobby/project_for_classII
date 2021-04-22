@@ -16,7 +16,31 @@ namespace JustinTownleySoftwareII
         public AddressForm()
         {
             InitializeComponent();
-            
+            //populating cities combobox
+            BindingList<City> cities = new BindingList<City>();
+            try
+            {
+                Globals.conn.Open();
+                // Perform databaase operations
+                string sql = "SELECT * FROM city";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    cities.Add(new City(rdr.GetInt32(0), rdr.GetString(1), rdr.GetInt32(2),
+                        rdr.GetDateTime(3), rdr.GetString(4), rdr.GetDateTime(5), rdr.GetString(6)));
+
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to MySQL...");
+            }
+            Globals.conn.Close();
+            cityComboBox.DataSource = cities;
+            cityComboBox.DisplayMember = "CityName";
+            cityComboBox.ValueMember = "CityID";
 
         }
     }

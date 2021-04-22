@@ -6,24 +6,27 @@ using System.Threading.Tasks;
 
 namespace JustinTownleySoftwareII
 {
-    class Country
+    class City
     {
+        public int CityID { get; set; }
+        public string CityName { get; set; }
         public int CountryID { get; set; }
-        public string CountryName { get; set; }
         public DateTime CreateDate { get; set; }
         public string CreatedBy { get; set; }
         public DateTime LastUpdate { get; set; }
         public string LastUpdateBy { get; set; }
 
         //constructor for current country
-        public Country(int id, string name, DateTime createDate, string createdBy, DateTime updated, string updatedBy)
+        public City(int cityID, string name, int countryID, DateTime createDate, string createdBy, DateTime updated, string updatedBy)
         {
-            CountryID = id;
-            CountryName = name;
+            CityID = cityID;
+            CityName = name;
+            CountryID = countryID;
             CreateDate = createDate;
             CreatedBy = createdBy;
             LastUpdate = updated;
             LastUpdateBy = updatedBy;
+
         }
     }
 }
