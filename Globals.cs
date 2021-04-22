@@ -18,6 +18,12 @@ namespace JustinTownleySoftwareII
         public static int CurrentCustomerID { get; set; }
         public static int CurrentAddressID { get; set; }
         public static int CurrentCityID { get; set; }
+        //form globals
+        public static AppointmentForm AppointmentForm1 { get; set; }
+
+        public static CustomerForm CustomerForm1 { get; set; }
+        public static AddressForm AddressForm1 { get; set; }
+        public static CityForm CityForm1 { get; set; }
         //MySql globals
         public static string connStr = "server=wgudb.ucertify.com;user=U075EN;database=U075EN;port=3306;password=53688947876";
         public static MySqlConnection conn;

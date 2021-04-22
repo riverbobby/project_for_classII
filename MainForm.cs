@@ -18,8 +18,6 @@ namespace JustinTownleySoftwareII
             InitializeComponent();
             dateTimePicker1.CustomFormat = "MM/yyyy";
             dateTimePicker1.ShowUpDown = true;
-            //testing
-            Globals.CurrentCountryID = -1;
             //populating countries combobox
             BindingList<Country> countries = new BindingList<Country>();
             try
@@ -49,16 +47,16 @@ namespace JustinTownleySoftwareII
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
-
+        //testing button
         private void testingButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            CityForm cityForm = new CityForm();
-            cityForm.Show();
+            this.Close();
+            Globals.CityForm1 = new CityForm();
+            Globals.CityForm1.Show();
         }
     }
 }

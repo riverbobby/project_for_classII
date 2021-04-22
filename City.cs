@@ -16,7 +16,7 @@ namespace JustinTownleySoftwareII
         public DateTime LastUpdate { get; set; }
         public string LastUpdateBy { get; set; }
 
-        //constructor for current country
+        //constructor for current city
         public City(int cityID, string name, int countryID, DateTime createDate, string createdBy, DateTime updated, string updatedBy)
         {
             CityID = cityID;

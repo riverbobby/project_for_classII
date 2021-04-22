@@ -19,9 +19,8 @@ namespace JustinTownleySoftwareII
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            CityForm cityForm = new CityForm();
-            cityForm.Show();
+            this.Close();
+            Globals.CityForm1.Show();
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -37,9 +36,8 @@ namespace JustinTownleySoftwareII
                     $"\'{Globals.toSqlDate(theDate)}\', \'{Globals.CurrentUser.UserName}\'";
                 if (Globals.Insert($"country", myBuilder)) 
                 {
-                    this.Hide();
-                    CityForm cityForm = new CityForm();
-                    cityForm.Show();
+                    this.Close();
+                    Globals.CityForm1.Show();
                 }
                 else
                 {
