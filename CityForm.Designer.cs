@@ -142,6 +142,7 @@ namespace JustinTownleySoftwareII
             this.Controls.Add(this.cancelButton);
             this.Name = "CityForm";
             this.Text = "CityForm";
+            this.VisibleChanged += new System.EventHandler(this.CityForm_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,45 +16,7 @@ namespace JustinTownleySoftwareII
         public CityForm()
         {
             InitializeComponent();
-            //next line for testing
-            //Globals.CurrentCityID = 2;
-            //populating current city from currentcityID
-            try
-            {
-                Globals.conn.Open();
-                // Perform database operations
-                string sql = "SELECT * FROM city";
-                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    Globals.CurrentCity = new City(rdr.GetInt32(0), rdr.GetString(1), rdr.GetInt32(2),
-                        rdr.GetDateTime(3), rdr.GetString(4), rdr.GetDateTime(5), rdr.GetString(6));
-
-                }
-                rdr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error connecting to MySQL...");
-            }
-            Globals.conn.Close();
-
-            //populating countries combobox
-            BindingList<Country> countries = new BindingList<Country>();
-            LoadCountries(countries);
-            //populating form
-            countryComboBox.DataSource = countries;
-            countryComboBox.DisplayMember = "CountryName";
-            countryComboBox.ValueMember = "CountryID";
-            //cityIdTextBox.Text = Globals.CurrentCity.CityID.ToString();
-            //cityTextBox.Text = Globals.CurrentCity.CityName;
-            //countryComboBox.SelectedValue = Globals.CurrentCity.CountryID;
-            //createdOnLabel.Text = Globals.CurrentCity.CreateDate.ToString();
-            //createdByLabel.Text = Globals.CurrentCity.CreatedBy;
-            //lastUpdateOnLabel.Text = Globals.CurrentCity.LastUpdate.ToString();
-            //updatedByLabel.Text = Globals.CurrentCity.LastUpdateBy;
-
+            cityIdTextBox.Text = "Auto generated when saved";
         }
 
         private void addCountryButton_Click(object sender, EventArgs e)
@@ -127,6 +89,15 @@ namespace JustinTownleySoftwareII
             }
             
 
+        }
+
+        private void CityForm_VisibleChanged(object sender, EventArgs e)
+        {
+            LoadCountries(Globals.Countries);
+            //populating form
+            countryComboBox.DataSource = Globals.Countries;
+            countryComboBox.DisplayMember = "CountryName";
+            countryComboBox.ValueMember = "CountryID";
         }
     }
 }

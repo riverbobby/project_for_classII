@@ -15,6 +15,7 @@ namespace JustinTownleySoftwareII
         public CountryForm()
         {
             InitializeComponent();
+            countryIdTextBox.Text = "Auto generated when saved";
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

@@ -51,7 +51,6 @@ namespace JustinTownleySoftwareII
             this.countryIdTextBox.ReadOnly = true;
             this.countryIdTextBox.Size = new System.Drawing.Size(359, 20);
             this.countryIdTextBox.TabIndex = 78;
-            this.countryIdTextBox.Text = "generated when saved";
             // 
             // countryLabel
             // 

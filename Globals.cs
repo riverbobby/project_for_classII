@@ -7,13 +7,22 @@ using System.IO;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace JustinTownleySoftwareII
 {
     static class Globals
     {
+        public static BindingList<Country> Countries = new BindingList<Country>();
+        public static BindingList<City> Cities = new BindingList<City>();
+        public static BindingList<Address> Addresses = new BindingList<Address>();
+        //public static BindingList<Customer> Customers = new BindingList<Customer>();
+        //public static BindingList<Appointment> Appointments = new BindingList<Appointment>();
+
+
         public static User CurrentUser { get; set; }
-        public static City CurrentCity { get; set; }
+        //public static City CurrentCity { get; set; }
+        public static Address CurrentAddress { get; set; }
         public static int CurrentAppointmentID { get; set; }
         public static int CurrentCustomerID { get; set; }
         public static int CurrentAddressID { get; set; }
@@ -64,6 +73,62 @@ namespace JustinTownleySoftwareII
             return success;
 
         }
+        public static bool Update(string table, string values, string IDName, int ID)
+        {
+            bool success = false;
+            try
+            {
+                Globals.conn.Open();
+                // Perform database operations
+                string sql = $"UPDATE {table} SET {values} WHERE {IDName} = {ID}";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Successfully Updated");
+                    success = true;
+                }
+                else
+                {
+                    MessageBox.Show("Error updating to MySQL");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            Globals.conn.Close();
+            return success;
+
+        }
+        public static bool Delete(string table, string IDName, int ID)
+        {
+            bool success = false;
+            try
+            {
+                Globals.conn.Open();
+                // Perform database operations
+                string sql = $"DELETE FROM {table} WHERE {IDName} = {ID}";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Successfully Deleted");
+                    success = true;
+                }
+                else
+                {
+                    MessageBox.Show("Error deleting from MySQL");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            Globals.conn.Close();
+            return success;
+
+        }
+
+
         //method for converting datetime.toutc to mysqldatetime
         public static string toSqlDate(DateTime pre)
         {

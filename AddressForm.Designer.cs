@@ -37,7 +37,7 @@ namespace JustinTownleySoftwareII
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.addressIdTextBox = new System.Windows.Forms.TextBox();
             this.updatedByLabel = new System.Windows.Forms.Label();
-            this.LastUpdateOnLabel = new System.Windows.Forms.Label();
+            this.lastUpdateOnLabel = new System.Windows.Forms.Label();
             this.createdByLabel = new System.Windows.Forms.Label();
             this.createdOnLabel = new System.Windows.Forms.Label();
             this.phoneLabel = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@ namespace JustinTownleySoftwareII
             this.addCityButton.TabIndex = 85;
             this.addCityButton.Text = "add new";
             this.addCityButton.UseVisualStyleBackColor = true;
+            this.addCityButton.Click += new System.EventHandler(this.addCityButton_Click);
             // 
             // cityComboBox
             // 
@@ -110,19 +111,17 @@ namespace JustinTownleySoftwareII
             this.updatedByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updatedByLabel.Location = new System.Drawing.Point(212, 324);
             this.updatedByLabel.Name = "updatedByLabel";
-            this.updatedByLabel.Size = new System.Drawing.Size(16, 20);
+            this.updatedByLabel.Size = new System.Drawing.Size(0, 20);
             this.updatedByLabel.TabIndex = 77;
-            this.updatedByLabel.Text = "x";
             // 
-            // LastUpdateOnLabel
+            // lastUpdateOnLabel
             // 
-            this.LastUpdateOnLabel.AutoSize = true;
-            this.LastUpdateOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastUpdateOnLabel.Location = new System.Drawing.Point(32, 324);
-            this.LastUpdateOnLabel.Name = "LastUpdateOnLabel";
-            this.LastUpdateOnLabel.Size = new System.Drawing.Size(16, 20);
-            this.LastUpdateOnLabel.TabIndex = 76;
-            this.LastUpdateOnLabel.Text = "x";
+            this.lastUpdateOnLabel.AutoSize = true;
+            this.lastUpdateOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastUpdateOnLabel.Location = new System.Drawing.Point(32, 324);
+            this.lastUpdateOnLabel.Name = "lastUpdateOnLabel";
+            this.lastUpdateOnLabel.Size = new System.Drawing.Size(0, 20);
+            this.lastUpdateOnLabel.TabIndex = 76;
             // 
             // createdByLabel
             // 
@@ -130,9 +129,8 @@ namespace JustinTownleySoftwareII
             this.createdByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createdByLabel.Location = new System.Drawing.Point(212, 270);
             this.createdByLabel.Name = "createdByLabel";
-            this.createdByLabel.Size = new System.Drawing.Size(16, 20);
+            this.createdByLabel.Size = new System.Drawing.Size(0, 20);
             this.createdByLabel.TabIndex = 75;
-            this.createdByLabel.Text = "x";
             // 
             // createdOnLabel
             // 
@@ -140,9 +138,8 @@ namespace JustinTownleySoftwareII
             this.createdOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createdOnLabel.Location = new System.Drawing.Point(32, 270);
             this.createdOnLabel.Name = "createdOnLabel";
-            this.createdOnLabel.Size = new System.Drawing.Size(16, 20);
+            this.createdOnLabel.Size = new System.Drawing.Size(0, 20);
             this.createdOnLabel.TabIndex = 74;
-            this.createdOnLabel.Text = "x";
             // 
             // phoneLabel
             // 
@@ -213,6 +210,7 @@ namespace JustinTownleySoftwareII
             this.saveButton.TabIndex = 67;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
@@ -223,6 +221,7 @@ namespace JustinTownleySoftwareII
             this.cancelButton.TabIndex = 66;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // AddressForm
             // 
@@ -237,7 +236,7 @@ namespace JustinTownleySoftwareII
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.addressIdTextBox);
             this.Controls.Add(this.updatedByLabel);
-            this.Controls.Add(this.LastUpdateOnLabel);
+            this.Controls.Add(this.lastUpdateOnLabel);
             this.Controls.Add(this.createdByLabel);
             this.Controls.Add(this.createdOnLabel);
             this.Controls.Add(this.phoneLabel);
@@ -250,6 +249,7 @@ namespace JustinTownleySoftwareII
             this.Controls.Add(this.cancelButton);
             this.Name = "AddressForm";
             this.Text = "AddressForm";
+            this.VisibleChanged += new System.EventHandler(this.AddressForm_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,7 +265,7 @@ namespace JustinTownleySoftwareII
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.TextBox addressIdTextBox;
         private System.Windows.Forms.Label updatedByLabel;
-        private System.Windows.Forms.Label LastUpdateOnLabel;
+        private System.Windows.Forms.Label lastUpdateOnLabel;
         private System.Windows.Forms.Label createdByLabel;
         private System.Windows.Forms.Label createdOnLabel;
         private System.Windows.Forms.Label phoneLabel;

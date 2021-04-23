@@ -22,7 +22,6 @@ namespace JustinTownleySoftwareII
             BindingList<Country> countries = new BindingList<Country>();
             try
             {
-                MessageBox.Show("Connecting to MySQL database");
                 Globals.conn.Open();
                 // Perform databaase operations
                 string sql = "SELECT * FROM country";
@@ -41,7 +40,6 @@ namespace JustinTownleySoftwareII
                 MessageBox.Show("Error connecting to MySQL...");
             }
             Globals.conn.Close();
-            MessageBox.Show("Done");
             displayDataGridView.DataSource = countries;
         }
 
@@ -54,9 +52,11 @@ namespace JustinTownleySoftwareII
         //testing button
         private void testingButton_Click(object sender, EventArgs e)
         {
+            //deleted next line for testing
+            //Globals.CurrentAddressID = -1;
             this.Close();
-            Globals.CityForm1 = new CityForm();
-            Globals.CityForm1.Show();
+            Globals.AddressForm1 = new AddressForm();
+            Globals.AddressForm1.Show();
         }
     }
 }
