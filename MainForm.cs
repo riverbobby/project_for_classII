@@ -55,8 +55,8 @@ namespace JustinTownleySoftwareII
             //deleted next line for testing
             //Globals.CurrentAddressID = -1;
             this.Close();
-            Globals.AddressForm1 = new AddressForm();
-            Globals.AddressForm1.Show();
+            Globals.CustomerForm1 = new CustomerForm();
+            Globals.CustomerForm1.Show();
         }
     }
 }

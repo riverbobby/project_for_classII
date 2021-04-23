@@ -37,7 +37,7 @@ namespace JustinTownleySoftwareII
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.customerIdTextBox = new System.Windows.Forms.TextBox();
             this.updatedByLabel = new System.Windows.Forms.Label();
-            this.LastUpdateOnLabel = new System.Windows.Forms.Label();
+            this.lastUpdateOnLabel = new System.Windows.Forms.Label();
             this.createdByLabel = new System.Windows.Forms.Label();
             this.createdOnLabel = new System.Windows.Forms.Label();
             this.addressLabel = new System.Windows.Forms.Label();
@@ -119,15 +119,15 @@ namespace JustinTownleySoftwareII
             this.updatedByLabel.TabIndex = 51;
             this.updatedByLabel.Text = "x";
             // 
-            // LastUpdateOnLabel
+            // lastUpdateOnLabel
             // 
-            this.LastUpdateOnLabel.AutoSize = true;
-            this.LastUpdateOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastUpdateOnLabel.Location = new System.Drawing.Point(56, 245);
-            this.LastUpdateOnLabel.Name = "LastUpdateOnLabel";
-            this.LastUpdateOnLabel.Size = new System.Drawing.Size(16, 20);
-            this.LastUpdateOnLabel.TabIndex = 50;
-            this.LastUpdateOnLabel.Text = "x";
+            this.lastUpdateOnLabel.AutoSize = true;
+            this.lastUpdateOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastUpdateOnLabel.Location = new System.Drawing.Point(56, 245);
+            this.lastUpdateOnLabel.Name = "lastUpdateOnLabel";
+            this.lastUpdateOnLabel.Size = new System.Drawing.Size(16, 20);
+            this.lastUpdateOnLabel.TabIndex = 50;
+            this.lastUpdateOnLabel.Text = "x";
             // 
             // createdByLabel
             // 
@@ -210,7 +210,7 @@ namespace JustinTownleySoftwareII
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.customerIdTextBox);
             this.Controls.Add(this.updatedByLabel);
-            this.Controls.Add(this.LastUpdateOnLabel);
+            this.Controls.Add(this.lastUpdateOnLabel);
             this.Controls.Add(this.createdByLabel);
             this.Controls.Add(this.createdOnLabel);
             this.Controls.Add(this.activeLabel);
@@ -221,6 +221,7 @@ namespace JustinTownleySoftwareII
             this.Controls.Add(this.cancelButton);
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
+            this.VisibleChanged += new System.EventHandler(this.CustomerForm_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,7 +237,7 @@ namespace JustinTownleySoftwareII
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox customerIdTextBox;
         private System.Windows.Forms.Label updatedByLabel;
-        private System.Windows.Forms.Label LastUpdateOnLabel;
+        private System.Windows.Forms.Label lastUpdateOnLabel;
         private System.Windows.Forms.Label createdByLabel;
         private System.Windows.Forms.Label createdOnLabel;
         private System.Windows.Forms.Label addressLabel;

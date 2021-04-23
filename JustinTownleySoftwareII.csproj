@@ -74,6 +74,7 @@
     <Compile Include="CountryForm.Designer.cs">
       <DependentUpon>CountryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer.cs" />
     <Compile Include="CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -16,13 +16,13 @@ namespace JustinTownleySoftwareII
         public static BindingList<Country> Countries = new BindingList<Country>();
         public static BindingList<City> Cities = new BindingList<City>();
         public static BindingList<Address> Addresses = new BindingList<Address>();
-        //public static BindingList<Customer> Customers = new BindingList<Customer>();
+        public static BindingList<Customer> Customers = new BindingList<Customer>();
         //public static BindingList<Appointment> Appointments = new BindingList<Appointment>();
 
 
         public static User CurrentUser { get; set; }
-        //public static City CurrentCity { get; set; }
         public static Address CurrentAddress { get; set; }
+        public static Customer CurrentCustomer { get; set; }
         public static int CurrentAppointmentID { get; set; }
         public static int CurrentCustomerID { get; set; }
         public static int CurrentAddressID { get; set; }

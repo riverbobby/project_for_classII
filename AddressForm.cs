@@ -17,7 +17,7 @@ namespace JustinTownleySoftwareII
         {
             InitializeComponent();
             //next line for testing
-            Globals.CurrentAddressID = 2;
+            //Globals.CurrentAddressID = 2;
             if (Globals.CurrentAddressID != -1)
             {
                 //populating current address from CurrentAddressID
@@ -62,11 +62,11 @@ namespace JustinTownleySoftwareII
             }
             Globals.conn.Close();
         }
-        private void LoadCities(BindingList<City> Cities)
+        private void LoadCities(BindingList<City> cities)
         {
             try
             {
-                Cities.Clear();
+                cities.Clear();
                 Globals.conn.Open();
                 // Perform database operations
                 string sql = "SELECT * FROM city";
@@ -74,7 +74,7 @@ namespace JustinTownleySoftwareII
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Cities.Add(new City(rdr.GetInt32(0), rdr.GetString(1), rdr.GetInt32(2),
+                    cities.Add(new City(rdr.GetInt32(0), rdr.GetString(1), rdr.GetInt32(2),
                         rdr.GetDateTime(3), rdr.GetString(4), rdr.GetDateTime(5), rdr.GetString(6)));
 
                 }
