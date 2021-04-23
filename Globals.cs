@@ -17,16 +17,17 @@ namespace JustinTownleySoftwareII
         public static BindingList<City> Cities = new BindingList<City>();
         public static BindingList<Address> Addresses = new BindingList<Address>();
         public static BindingList<Customer> Customers = new BindingList<Customer>();
-        //public static BindingList<Appointment> Appointments = new BindingList<Appointment>();
+        public static BindingList<Appointment> Appointments = new BindingList<Appointment>();
+        public static BindingList<User> Users = new BindingList<User>();
 
 
         public static User CurrentUser { get; set; }
         public static Address CurrentAddress { get; set; }
         public static Customer CurrentCustomer { get; set; }
+        public static Appointment CurrentAppointment { get; set; }
         public static int CurrentAppointmentID { get; set; }
         public static int CurrentCustomerID { get; set; }
         public static int CurrentAddressID { get; set; }
-        public static int CurrentCityID { get; set; }
         //form globals
         public static AppointmentForm AppointmentForm1 { get; set; }
 

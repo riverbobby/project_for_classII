@@ -19,18 +19,21 @@ namespace JustinTownleySoftwareII
             dateTimePicker1.CustomFormat = "MM/yyyy";
             dateTimePicker1.ShowUpDown = true;
             //populating countries combobox
-            BindingList<Country> countries = new BindingList<Country>();
+            BindingList<Appointment> appointments = new BindingList<Appointment>();
             try
             {
                 Globals.conn.Open();
                 // Perform databaase operations
-                string sql = "SELECT * FROM country";
+                string sql = "SELECT * FROM appointment";
                 MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    countries.Add(new Country(rdr.GetInt32(0), rdr.GetString(1),
-                        rdr.GetDateTime(2), rdr.GetString(3), rdr.GetDateTime(4), rdr.GetString(5)));
+                    appointments.Add(new Appointment(rdr.GetInt32(0), rdr.GetInt32(1),
+                        rdr.GetInt32(2), rdr.GetString(3), rdr.GetString(4), rdr.GetString(5),
+                        rdr.GetString(6), rdr.GetString(7), rdr.GetString(8), rdr.GetDateTime(9),
+                        rdr.GetDateTime(10), rdr.GetDateTime(11), rdr.GetString(12), rdr.GetDateTime(13),
+                        rdr.GetString(14)));
 
                 }
                 rdr.Close();
@@ -40,7 +43,7 @@ namespace JustinTownleySoftwareII
                 MessageBox.Show("Error connecting to MySQL...");
             }
             Globals.conn.Close();
-            displayDataGridView.DataSource = countries;
+            displayDataGridView.DataSource = appointments;
         }
 
         private void logOutButton_Click(object sender, EventArgs e)
@@ -53,10 +56,10 @@ namespace JustinTownleySoftwareII
         private void testingButton_Click(object sender, EventArgs e)
         {
             //deleted next line for testing
-            //Globals.CurrentAddressID = -1;
+            //Globals.CurrentCustomerID = -1;
             this.Close();
-            Globals.CustomerForm1 = new CustomerForm();
-            Globals.CustomerForm1.Show();
+            Globals.AppointmentForm1 = new AppointmentForm();
+            Globals.AppointmentForm1.Show();
         }
     }
 }

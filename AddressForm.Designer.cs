@@ -109,7 +109,7 @@ namespace JustinTownleySoftwareII
             // 
             this.updatedByLabel.AutoSize = true;
             this.updatedByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updatedByLabel.Location = new System.Drawing.Point(212, 324);
+            this.updatedByLabel.Location = new System.Drawing.Point(343, 324);
             this.updatedByLabel.Name = "updatedByLabel";
             this.updatedByLabel.Size = new System.Drawing.Size(0, 20);
             this.updatedByLabel.TabIndex = 77;
@@ -127,7 +127,7 @@ namespace JustinTownleySoftwareII
             // 
             this.createdByLabel.AutoSize = true;
             this.createdByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createdByLabel.Location = new System.Drawing.Point(212, 270);
+            this.createdByLabel.Location = new System.Drawing.Point(343, 270);
             this.createdByLabel.Name = "createdByLabel";
             this.createdByLabel.Size = new System.Drawing.Size(0, 20);
             this.createdByLabel.TabIndex = 75;

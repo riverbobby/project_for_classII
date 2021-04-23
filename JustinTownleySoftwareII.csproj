@@ -54,6 +54,7 @@
     <Compile Include="AddressForm.Designer.cs">
       <DependentUpon>AddressForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Appointment.cs" />
     <Compile Include="AppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>

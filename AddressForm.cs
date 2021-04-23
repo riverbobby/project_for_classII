@@ -28,10 +28,10 @@ namespace JustinTownleySoftwareII
                 cityComboBox.SelectedValue = Globals.CurrentAddress.CityID;
                 postalCodeTextBox.Text = Globals.CurrentAddress.PostalCode;
                 phoneTextBox.Text = Globals.CurrentAddress.Phone;
-                createdOnLabel.Text = Globals.CurrentAddress.CreateDate.ToString();
-                createdByLabel.Text = Globals.CurrentAddress.CreatedBy;
-                lastUpdateOnLabel.Text = Globals.CurrentAddress.LastUpdate.ToString();
-                updatedByLabel.Text = Globals.CurrentAddress.LastUpdateBy;
+                createdOnLabel.Text = $"created on {Globals.CurrentAddress.CreateDate.ToString()}";
+                createdByLabel.Text = $"by {Globals.CurrentAddress.CreatedBy}";
+                lastUpdateOnLabel.Text = $"updated on {Globals.CurrentAddress.LastUpdate.ToString()}";
+                updatedByLabel.Text = $"by {Globals.CurrentAddress.LastUpdateBy}";
             }
             else
             {
@@ -139,7 +139,7 @@ namespace JustinTownleySoftwareII
                     if (Globals.Insert($"address", myBuilder))
                     {
                         this.Close();
-                        Globals.AddressForm1.Show();
+                        Globals.CustomerForm1.Show();
                     }
                     else
                     {
@@ -159,7 +159,7 @@ namespace JustinTownleySoftwareII
                     {
                         Globals.CurrentAddressID = -1;
                         this.Close();
-                        Globals.AddressForm1.Show();
+                        Globals.CustomerForm1.Show();
                     }
                     else
                     {
@@ -177,6 +177,7 @@ namespace JustinTownleySoftwareII
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            Globals.CurrentAddressID = -1;
             this.Close();
             Globals.CustomerForm1.Show();
         }

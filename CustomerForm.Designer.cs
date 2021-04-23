@@ -56,6 +56,7 @@ namespace JustinTownleySoftwareII
             this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // saveButton
             // 
@@ -66,6 +67,7 @@ namespace JustinTownleySoftwareII
             this.saveButton.TabIndex = 8;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // addAddressButton
             // 
@@ -75,6 +77,7 @@ namespace JustinTownleySoftwareII
             this.addAddressButton.TabIndex = 65;
             this.addAddressButton.Text = "add new";
             this.addAddressButton.UseVisualStyleBackColor = true;
+            this.addAddressButton.Click += new System.EventHandler(this.addAddressButton_Click);
             // 
             // updateAddressButton
             // 
@@ -84,6 +87,7 @@ namespace JustinTownleySoftwareII
             this.updateAddressButton.TabIndex = 64;
             this.updateAddressButton.Text = "update";
             this.updateAddressButton.UseVisualStyleBackColor = true;
+            this.updateAddressButton.Click += new System.EventHandler(this.updateAddressButton_Click);
             // 
             // addressComboBox
             // 
@@ -113,11 +117,10 @@ namespace JustinTownleySoftwareII
             // 
             this.updatedByLabel.AutoSize = true;
             this.updatedByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updatedByLabel.Location = new System.Drawing.Point(236, 245);
+            this.updatedByLabel.Location = new System.Drawing.Point(343, 245);
             this.updatedByLabel.Name = "updatedByLabel";
-            this.updatedByLabel.Size = new System.Drawing.Size(16, 20);
+            this.updatedByLabel.Size = new System.Drawing.Size(0, 20);
             this.updatedByLabel.TabIndex = 51;
-            this.updatedByLabel.Text = "x";
             // 
             // lastUpdateOnLabel
             // 
@@ -125,19 +128,17 @@ namespace JustinTownleySoftwareII
             this.lastUpdateOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastUpdateOnLabel.Location = new System.Drawing.Point(56, 245);
             this.lastUpdateOnLabel.Name = "lastUpdateOnLabel";
-            this.lastUpdateOnLabel.Size = new System.Drawing.Size(16, 20);
+            this.lastUpdateOnLabel.Size = new System.Drawing.Size(0, 20);
             this.lastUpdateOnLabel.TabIndex = 50;
-            this.lastUpdateOnLabel.Text = "x";
             // 
             // createdByLabel
             // 
             this.createdByLabel.AutoSize = true;
             this.createdByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createdByLabel.Location = new System.Drawing.Point(236, 191);
+            this.createdByLabel.Location = new System.Drawing.Point(343, 191);
             this.createdByLabel.Name = "createdByLabel";
-            this.createdByLabel.Size = new System.Drawing.Size(16, 20);
+            this.createdByLabel.Size = new System.Drawing.Size(0, 20);
             this.createdByLabel.TabIndex = 49;
-            this.createdByLabel.Text = "x";
             // 
             // createdOnLabel
             // 
@@ -145,9 +146,8 @@ namespace JustinTownleySoftwareII
             this.createdOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createdOnLabel.Location = new System.Drawing.Point(56, 191);
             this.createdOnLabel.Name = "createdOnLabel";
-            this.createdOnLabel.Size = new System.Drawing.Size(16, 20);
+            this.createdOnLabel.Size = new System.Drawing.Size(0, 20);
             this.createdOnLabel.TabIndex = 48;
-            this.createdOnLabel.Text = "x";
             // 
             // addressLabel
             // 
