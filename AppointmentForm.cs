@@ -19,7 +19,7 @@ namespace JustinTownleySoftwareII
             startTimePicker.ShowUpDown = true;
             endTimePicker.ShowUpDown = true;
             //next line for testing
-            Globals.CurrentAppointmentID = -1;
+            //Globals.CurrentAppointmentID = -1;
             if (Globals.CurrentAppointmentID != -1)
             {
                 //populating current address from CurrentAppointmentID
@@ -34,7 +34,9 @@ namespace JustinTownleySoftwareII
                 typeTextBox.Text = Globals.CurrentAppointment.TypeOfAppointment;
                 urlTextBox.Text = Globals.CurrentAppointment.URL;
                 startDatePicker.Value = Globals.CurrentAppointment.Start;
+                startTimePicker.Value = Globals.CurrentAppointment.Start;
                 endDatePicker.Value = Globals.CurrentAppointment.End;
+                endTimePicker.Value = Globals.CurrentAppointment.End;
                 createdOnLabel.Text = $"created on {Globals.CurrentAppointment.CreateDate.ToString()}";
                 createdByLabel.Text = $"by {Globals.CurrentAppointment.CreatedBy}";
                 lastUpdateOnLabel.Text = $"updated on {Globals.CurrentAppointment.LastUpdate.ToString()}";

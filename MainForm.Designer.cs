@@ -32,8 +32,8 @@ namespace JustinTownleySoftwareII
             this.logOutButton = new System.Windows.Forms.Button();
             this.displayDataGridView = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -52,7 +52,6 @@ namespace JustinTownleySoftwareII
             this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.testingButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -88,25 +87,25 @@ namespace JustinTownleySoftwareII
             this.button1.Text = "Add New\r\nCustomer";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // editButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(432, 741);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 58);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Edit\r\nSelection";
-            this.button2.UseVisualStyleBackColor = true;
+            this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editButton.Location = new System.Drawing.Point(432, 741);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(136, 58);
+            this.editButton.TabIndex = 5;
+            this.editButton.Text = "Edit\r\nSelection";
+            this.editButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // deleteButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(600, 741);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 58);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Delete\r\nSelection";
-            this.button3.UseVisualStyleBackColor = true;
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.Location = new System.Drawing.Point(600, 741);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(136, 58);
+            this.deleteButton.TabIndex = 6;
+            this.deleteButton.Text = "Delete\r\nSelection";
+            this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // monthCalendar1
             // 
@@ -302,22 +301,11 @@ namespace JustinTownleySoftwareII
             this.label1.TabIndex = 15;
             this.label1.Text = "Title";
             // 
-            // testingButton
-            // 
-            this.testingButton.Location = new System.Drawing.Point(831, 761);
-            this.testingButton.Name = "testingButton";
-            this.testingButton.Size = new System.Drawing.Size(75, 23);
-            this.testingButton.TabIndex = 16;
-            this.testingButton.Text = "testingButton";
-            this.testingButton.UseVisualStyleBackColor = true;
-            this.testingButton.Click += new System.EventHandler(this.testingButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 811);
-            this.Controls.Add(this.testingButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -327,8 +315,8 @@ namespace JustinTownleySoftwareII
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.displayDataGridView);
             this.Controls.Add(this.logOutButton);
@@ -351,8 +339,8 @@ namespace JustinTownleySoftwareII
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.DataGridView displayDataGridView;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
@@ -371,6 +359,5 @@ namespace JustinTownleySoftwareII
         private System.Windows.Forms.RadioButton radioButton10;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button testingButton;
     }
 }

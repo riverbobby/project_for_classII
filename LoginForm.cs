@@ -67,22 +67,14 @@ namespace JustinTownleySoftwareII
                         }
                         rdr.Close();
                         Globals.conn.Close();
-                        //Hide LoginForm
-                        this.Hide();
+                        //close LoginForm
+                        this.Close();
                         MainForm mainForm = new MainForm();
                         mainForm.Show();
 
 
 
                     }
-                    //if (rdr.GetString(1) == passwordTextBox.Text)
-                    //{
-                    //    //allow login
-                    //    MessageBox.Show("login begin");
-
-                    //    Globals.CurrentUserID = rdr.GetInt32(0);
-                    //    MessageBox.Show($"{Globals.CurrentUserID} is loggin in...");
-                    //}
                     else
                     {
                         invalid = true;
@@ -110,13 +102,12 @@ namespace JustinTownleySoftwareII
                     }
                 }
                 Globals.conn.Close();
-
             }
             if (invalid)
             {
                 using (StreamWriter w = File.AppendText("logfile.txt"))
                 {
-                    Globals.Log("Insuccessful login attempt.", w);
+                    Globals.Log("Unsuccessful login attempt.", w);
                     w.Close();
                 }
             }

@@ -16,8 +16,6 @@ namespace JustinTownleySoftwareII
         public AddressForm()
         {
             InitializeComponent();
-            //next line for testing
-            //Globals.CurrentAddressID = 2;
             if (Globals.CurrentAddressID != -1)
             {
                 //populating current address from CurrentAddressID

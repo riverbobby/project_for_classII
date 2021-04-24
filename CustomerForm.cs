@@ -16,8 +16,6 @@ namespace JustinTownleySoftwareII
         public CustomerForm()
         {
             InitializeComponent();
-            //next line for testing
-            //Globals.CurrentCustomerID = 2;
             if (Globals.CurrentCustomerID != -1)
             {
                 //populating current address from CurrentAddressID
@@ -123,7 +121,7 @@ namespace JustinTownleySoftwareII
             this.Close();
             if (Application.OpenForms.OfType<AppointmentForm>().Any())
             {
-                Globals.AddressForm1.Show();
+                Globals.AppointmentForm1.Show();
             }
             else
             {
@@ -166,7 +164,7 @@ namespace JustinTownleySoftwareII
                         this.Close();
                         if (Application.OpenForms.OfType<AppointmentForm>().Any())
                         {
-                            Globals.AddressForm1.Show();
+                            Globals.AppointmentForm1.Show();
                         }
                         else
                         {
@@ -193,7 +191,7 @@ namespace JustinTownleySoftwareII
                         this.Close();
                         if (Application.OpenForms.OfType<AppointmentForm>().Any())
                         {
-                            Globals.AddressForm1.Show();
+                            Globals.AppointmentForm1.Show();
                         }
                         else
                         {
