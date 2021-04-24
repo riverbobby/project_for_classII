@@ -130,7 +130,7 @@ namespace JustinTownleySoftwareII
         }
 
 
-        //method for converting datetime.toutc to mysqldatetime
+        //method for converting datetime to mysqldatetime
         public static string toSqlDate(DateTime pre)
         {
             return pre.ToString("yyyy-MM-dd H:mm:ss");

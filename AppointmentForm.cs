@@ -16,8 +16,10 @@ namespace JustinTownleySoftwareII
         public AppointmentForm()
         {
             InitializeComponent();
+            startTimePicker.ShowUpDown = true;
+            endTimePicker.ShowUpDown = true;
             //next line for testing
-
+            Globals.CurrentAppointmentID = -1;
             if (Globals.CurrentAppointmentID != -1)
             {
                 //populating current address from CurrentAppointmentID
@@ -89,7 +91,7 @@ namespace JustinTownleySoftwareII
                 customers.Clear();
                 Globals.conn.Open();
                 // Perform database operations
-                string sql = "SELECT * FROM Customer";
+                string sql = "SELECT * FROM customer";
                 MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -201,9 +203,9 @@ namespace JustinTownleySoftwareII
                 valid = false;
             }
             //validating start and end times
-            string timeString = $"{startDatePicker.Value.ToShortDateString()} +{startTimePicker.Value.ToShortTimeString()}";
+            string timeString = $"{startDatePicker.Value.ToShortDateString()} {startTimePicker.Value.ToShortTimeString()}";
             DateTime begin = DateTime.Parse(timeString);
-            timeString = $"{startDatePicker.Value.ToShortDateString()} +{startTimePicker.Value.ToShortTimeString()}";
+            timeString = $"{endTimePicker.Value.ToShortDateString()} {endTimePicker.Value.ToShortTimeString()}";
             DateTime end = DateTime.Parse(timeString);
             foreach (var appointment in Globals.Appointments)
             {
@@ -215,6 +217,12 @@ namespace JustinTownleySoftwareII
             }
             if ((int)begin.DayOfWeek < 1 || (int)end.DayOfWeek > 5 || begin.Hour < 8 || (end.Hour > 17 || (end.Hour == 17 && end.Minute > 0)))
             {
+                MessageBox.Show($"{(int)begin.DayOfWeek}");
+                MessageBox.Show($"{(int)end.DayOfWeek}");
+                MessageBox.Show($"{(int)begin.Hour}");
+                MessageBox.Show($"{(int)end.Hour}");
+                MessageBox.Show($"{(int)end.Minute}");
+
                 valid = false;
                 message.Append($"please schedule the appointment between the hours 8 AM and 5 PM, Monday - Friday\n");
             }
@@ -232,7 +240,7 @@ namespace JustinTownleySoftwareII
                     string myBuilder = $"\'0\', \'{customerComboBox.SelectedValue}\', \'{userIdComboBox.SelectedValue}\', " +
                         $"\'{titleTextBox.Text}\', \'{descriptionTextBox.Text}\', \'{locationTextBox.Text}\', " +
                         $"\'{contactTextBox.Text}\', \'{typeTextBox.Text}\', \'{urlTextBox.Text}\', " +
-                        $"\'{Globals.toSqlDate(begin)}\', \'{Globals.toSqlDate(end)}\', " +
+                        $"\'{Globals.toSqlDate(begin.ToUniversalTime())}\', \'{Globals.toSqlDate(end.ToUniversalTime())}\', " +
                         $"\'{Globals.toSqlDate(theDate)}\', \'{Globals.CurrentUser.UserName}\', " +
                         $"\'{Globals.toSqlDate(theDate)}\', \'{Globals.CurrentUser.UserName}\'";
                     if (Globals.Insert($"appointment", myBuilder))
@@ -255,8 +263,8 @@ namespace JustinTownleySoftwareII
                         $"userId = \'{userIdComboBox.SelectedValue}\', title = \'{titleTextBox.Text}\', " +
                         $"description = \'{descriptionTextBox.Text}\', location = \'{locationTextBox.Text}\', " +
                         $"contact = \'{contactTextBox.Text}\', type = \'{typeTextBox.Text}\', " +
-                        $"url = \'{urlTextBox.Text}\', start = \'{Globals.toSqlDate(begin)}\', " +
-                        $"end = \'{Globals.toSqlDate(end)}\', lastUpdate = \'{Globals.toSqlDate(theDate)}\', " +
+                        $"url = \'{urlTextBox.Text}\', start = \'{Globals.toSqlDate(begin.ToUniversalTime())}\', " +
+                        $"end = \'{Globals.toSqlDate(end.ToUniversalTime())}\', lastUpdate = \'{Globals.toSqlDate(theDate)}\', " +
                         $"lastUpdateBy = \'{Globals.CurrentUser.UserName}\'";
                     if (Globals.Update($"appointment", myBuilder, "appointmentId", Globals.CurrentAppointment.CustomerID))
                     {
