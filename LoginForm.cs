@@ -67,8 +67,8 @@ namespace JustinTownleySoftwareII
                         }
                         rdr.Close();
                         Globals.conn.Close();
-                        //close LoginForm
-                        this.Close();
+                        //hide LoginForm
+                        this.Hide();
                         MainForm mainForm = new MainForm();
                         mainForm.Show();
 

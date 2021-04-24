@@ -220,7 +220,7 @@ namespace JustinTownleySoftwareII
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cancelButton);
             this.Name = "CustomerForm";
-            this.Text = "CustomerForm";
+            this.Text = "Customer Form";
             this.VisibleChanged += new System.EventHandler(this.CustomerForm_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();

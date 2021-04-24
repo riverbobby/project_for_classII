@@ -394,7 +394,7 @@ namespace JustinTownleySoftwareII
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cancelButton);
             this.Name = "AppointmentForm";
-            this.Text = "AppointmentForm";
+            this.Text = "Appointment Form";
             this.VisibleChanged += new System.EventHandler(this.AppointmentForm_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();

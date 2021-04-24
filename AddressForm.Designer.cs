@@ -248,7 +248,7 @@ namespace JustinTownleySoftwareII
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cancelButton);
             this.Name = "AddressForm";
-            this.Text = "AddressForm";
+            this.Text = "Address Form";
             this.VisibleChanged += new System.EventHandler(this.AddressForm_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
