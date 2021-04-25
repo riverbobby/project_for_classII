@@ -40,6 +40,7 @@ namespace JustinTownleySoftwareII
             ResetGlobals();
             LoadCustomers(Globals.Customers);
             displayDataGridView.DataSource = Globals.Customers;
+            displayTitleLabel.Text = "All Customers";
             addButton.Text = "Add New Customer";
         }
         private void appointmentsRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -47,9 +48,38 @@ namespace JustinTownleySoftwareII
             ResetGlobals();
             LoadAppointments(Globals.Appointments);
             displayDataGridView.DataSource = Globals.Appointments;
+            displayTitleLabel.Text = "All Appointments";
             addButton.Text = "Add New Appointment";
         }
+        private void appointments1RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void appointments2RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
         private void reportRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void report1RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void report2RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void report3RadioButton_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -57,9 +87,17 @@ namespace JustinTownleySoftwareII
         {
 
         }
+        private void calendarWeekRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void calendarMonthRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            calendarRadioButton.Checked = true;
+
         }
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -104,7 +142,7 @@ namespace JustinTownleySoftwareII
             }
             else
             {
-                if (Globals.Delete("appointment", "appointmentId", Globals.CurrentAddressID))
+                if (Globals.Delete("appointment", "appointmentId", Globals.CurrentAppointmentID))
                 {
                     appointmentsRadioButton.Checked = true;
                 }
@@ -122,6 +160,7 @@ namespace JustinTownleySoftwareII
             deleteButton.Enabled = true;
             if (customersRadioButton.Checked)
             {
+                MessageBox.Show($"{(int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value}");
                 Globals.CurrentCustomerID = (int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value;
                 LookupCustomer(Globals.CurrentCustomerID);
                 displayDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Green;

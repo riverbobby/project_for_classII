@@ -84,7 +84,7 @@ namespace JustinTownleySoftwareII
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.Location = new System.Drawing.Point(266, 741);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(136, 58);
+            this.addButton.Size = new System.Drawing.Size(189, 58);
             this.addButton.TabIndex = 4;
             this.addButton.Text = "Add New\r\nCustomer";
             this.addButton.UseVisualStyleBackColor = true;
@@ -94,9 +94,9 @@ namespace JustinTownleySoftwareII
             // 
             this.editButton.Enabled = false;
             this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editButton.Location = new System.Drawing.Point(432, 741);
+            this.editButton.Location = new System.Drawing.Point(478, 741);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(136, 58);
+            this.editButton.Size = new System.Drawing.Size(178, 58);
             this.editButton.TabIndex = 5;
             this.editButton.Text = "Edit\r\nSelection";
             this.editButton.UseVisualStyleBackColor = true;
@@ -106,9 +106,9 @@ namespace JustinTownleySoftwareII
             // 
             this.deleteButton.Enabled = false;
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.Location = new System.Drawing.Point(600, 741);
+            this.deleteButton.Location = new System.Drawing.Point(681, 741);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(136, 58);
+            this.deleteButton.Size = new System.Drawing.Size(157, 58);
             this.deleteButton.TabIndex = 6;
             this.deleteButton.Text = "Delete\r\nSelection";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -141,7 +141,7 @@ namespace JustinTownleySoftwareII
             this.calendarMonthRadioButton.TabIndex = 1;
             this.calendarMonthRadioButton.Text = "month";
             this.calendarMonthRadioButton.UseVisualStyleBackColor = true;
-            this.calendarMonthRadioButton.CheckedChanged += new System.EventHandler(this.calendarRadioButton_CheckedChanged);
+            this.calendarMonthRadioButton.CheckedChanged += new System.EventHandler(this.calendarMonthRadioButton_CheckedChanged);
             // 
             // calendarWeekRadioButton
             // 
@@ -154,7 +154,7 @@ namespace JustinTownleySoftwareII
             this.calendarWeekRadioButton.TabStop = true;
             this.calendarWeekRadioButton.Text = "week";
             this.calendarWeekRadioButton.UseVisualStyleBackColor = true;
-            this.calendarWeekRadioButton.CheckedChanged += new System.EventHandler(this.calendarRadioButton_CheckedChanged);
+            this.calendarWeekRadioButton.CheckedChanged += new System.EventHandler(this.calendarWeekRadioButton_CheckedChanged);
             // 
             // calendarRadioButton
             // 
@@ -226,7 +226,7 @@ namespace JustinTownleySoftwareII
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(121, 21);
             this.comboBox.TabIndex = 2;
-            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.appointmentsRadioButton_CheckedChanged);
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // appointments2RadioButton
             // 
@@ -237,7 +237,7 @@ namespace JustinTownleySoftwareII
             this.appointments2RadioButton.TabIndex = 1;
             this.appointments2RadioButton.Text = "by consultant";
             this.appointments2RadioButton.UseVisualStyleBackColor = true;
-            this.appointments2RadioButton.CheckedChanged += new System.EventHandler(this.appointmentsRadioButton_CheckedChanged);
+            this.appointments2RadioButton.CheckedChanged += new System.EventHandler(this.appointments2RadioButton_CheckedChanged);
             // 
             // appointments1RadioButton
             // 
@@ -250,7 +250,7 @@ namespace JustinTownleySoftwareII
             this.appointments1RadioButton.TabStop = true;
             this.appointments1RadioButton.Text = "all appointments";
             this.appointments1RadioButton.UseVisualStyleBackColor = true;
-            this.appointments1RadioButton.CheckedChanged += new System.EventHandler(this.appointmentsRadioButton_CheckedChanged);
+            this.appointments1RadioButton.CheckedChanged += new System.EventHandler(this.appointments1RadioButton_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -272,7 +272,7 @@ namespace JustinTownleySoftwareII
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(75, 20);
             this.dateTimePicker.TabIndex = 15;
-            this.dateTimePicker.ValueChanged += new System.EventHandler(this.reportRadioButton_CheckedChanged);
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
             // report3RadioButton
             // 
@@ -283,7 +283,7 @@ namespace JustinTownleySoftwareII
             this.report3RadioButton.TabIndex = 3;
             this.report3RadioButton.Text = "past appoinments";
             this.report3RadioButton.UseVisualStyleBackColor = true;
-            this.report3RadioButton.CheckedChanged += new System.EventHandler(this.reportRadioButton_CheckedChanged);
+            this.report3RadioButton.CheckedChanged += new System.EventHandler(this.report3RadioButton_CheckedChanged);
             // 
             // report1RadioButton
             // 
@@ -296,7 +296,7 @@ namespace JustinTownleySoftwareII
             this.report1RadioButton.TabStop = true;
             this.report1RadioButton.Text = "number of appointment\r\ntypes by month";
             this.report1RadioButton.UseVisualStyleBackColor = true;
-            this.report1RadioButton.CheckedChanged += new System.EventHandler(this.reportRadioButton_CheckedChanged);
+            this.report1RadioButton.CheckedChanged += new System.EventHandler(this.report1RadioButton_CheckedChanged);
             // 
             // report2RadioButton
             // 
@@ -307,7 +307,7 @@ namespace JustinTownleySoftwareII
             this.report2RadioButton.TabIndex = 0;
             this.report2RadioButton.Text = "upcoming appointments";
             this.report2RadioButton.UseVisualStyleBackColor = true;
-            this.report2RadioButton.CheckedChanged += new System.EventHandler(this.reportRadioButton_CheckedChanged);
+            this.report2RadioButton.CheckedChanged += new System.EventHandler(this.report2RadioButton_CheckedChanged);
             // 
             // displayTitleLabel
             // 
