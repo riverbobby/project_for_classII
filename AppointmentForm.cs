@@ -18,8 +18,6 @@ namespace JustinTownleySoftwareII
             InitializeComponent();
             startTimePicker.ShowUpDown = true;
             endTimePicker.ShowUpDown = true;
-            //next line for testing
-            //Globals.CurrentAppointmentID = -1;
             if (Globals.CurrentAppointmentID != -1)
             {
                 //populating current address from CurrentAppointmentID
@@ -219,12 +217,6 @@ namespace JustinTownleySoftwareII
             }
             if ((int)begin.DayOfWeek < 1 || (int)end.DayOfWeek > 5 || begin.Hour < 8 || (end.Hour > 17 || (end.Hour == 17 && end.Minute > 0)))
             {
-                MessageBox.Show($"{(int)begin.DayOfWeek}");
-                MessageBox.Show($"{(int)end.DayOfWeek}");
-                MessageBox.Show($"{(int)begin.Hour}");
-                MessageBox.Show($"{(int)end.Hour}");
-                MessageBox.Show($"{(int)end.Minute}");
-
                 valid = false;
                 message.Append($"please schedule the appointment between the hours 8 AM and 5 PM, Monday - Friday\n");
             }

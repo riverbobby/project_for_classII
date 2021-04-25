@@ -21,6 +21,11 @@ namespace JustinTownleySoftwareII
             //formatting dateTimePicker
             dateTimePicker.CustomFormat = "MM/yyyy";
             dateTimePicker.ShowUpDown = true;
+            //populating comboBox
+            LoadUsers(Globals.Users);
+            comboBox.DataSource = Globals.Users;
+            comboBox.DisplayMember = "UserName";
+            comboBox.ValueMember = "UserID";
             //populating displayDataGridView
             LoadCustomers(Globals.Customers);
             displayDataGridView.DataSource = Globals.Customers;
@@ -35,42 +40,16 @@ namespace JustinTownleySoftwareII
             ResetGlobals();
             LoadCustomers(Globals.Customers);
             displayDataGridView.DataSource = Globals.Customers;
+            addButton.Text = "Add New Customer";
         }
         private void appointmentsRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             ResetGlobals();
             LoadAppointments(Globals.Appointments);
             displayDataGridView.DataSource = Globals.Appointments;
-        }
-        private void appointments1RadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            appointmentsRadioButton.Checked = true;
-        }
-        private void appointments2RadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            appointmentsRadioButton.Checked = true;
-        }
-        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            appointmentsRadioButton.Checked = true;
+            addButton.Text = "Add New Appointment";
         }
         private void reportRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void report1RadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void report2RadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void report3RadioButton_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -78,29 +57,58 @@ namespace JustinTownleySoftwareII
         {
 
         }
-        private void calendarWeekRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void calendarMonthRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-
+            calendarRadioButton.Checked = true;
         }
         private void addButton_Click(object sender, EventArgs e)
         {
-
+            if (customersRadioButton.Checked)
+            {
+                ResetGlobals();
+                this.Close();
+                Globals.CustomerForm1 = new CustomerForm();
+                Globals.CustomerForm1.Show();
+            }
+            else
+            {
+                ResetGlobals();
+                this.Close();
+                Globals.AppointmentForm1 = new AppointmentForm();
+                Globals.AppointmentForm1.Show();
+            }
         }
         private void editButton_Click(object sender, EventArgs e)
         {
-
+            if (customersRadioButton.Checked)
+            {
+                this.Close();
+                Globals.CustomerForm1 = new CustomerForm();
+                Globals.CustomerForm1.Show();
+            }
+            else
+            {
+                this.Close();
+                Globals.AppointmentForm1 = new AppointmentForm();
+                Globals.AppointmentForm1.Show();
+            }
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
-
+            if (customersRadioButton.Checked)
+            {
+                if (Globals.Delete("customer", "customerId", Globals.CurrentCustomerID))
+                {
+                    customersRadioButton.Checked = true;
+                }
+            }
+            else
+            {
+                if (Globals.Delete("appointment", "appointmentId", Globals.CurrentAddressID))
+                {
+                    appointmentsRadioButton.Checked = true;
+                }
+            }
         }
         private void logOutButton_Click(object sender, EventArgs e)
         {
@@ -110,9 +118,20 @@ namespace JustinTownleySoftwareII
         }
         private void displayDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            editButton.Enabled = true;
+            deleteButton.Enabled = true;
             if (customersRadioButton.Checked)
             {
-                
+                Globals.CurrentCustomerID = (int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value;
+                LookupCustomer(Globals.CurrentCustomerID);
+                displayDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                MessageBox.Show($"{(int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value}");
+                Globals.CurrentAppointmentID = (int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value;
+                LookupAppointment(Globals.CurrentAppointmentID);
+                displayDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Green;
             }
         }
         private void ResetGlobals()
@@ -163,6 +182,77 @@ namespace JustinTownleySoftwareII
                         rdr.GetDateTime(10), rdr.GetDateTime(11), rdr.GetString(12), rdr.GetDateTime(13),
                         rdr.GetString(14)));
 
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to MySQL...");
+            }
+            Globals.conn.Close();
+        }
+        private void LoadUsers(BindingList<User> users)
+        {
+            try
+            {
+                users.Clear();
+                Globals.conn.Open();
+                // Perform database operations
+                string sql = "SELECT * FROM user";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    users.Add(new User(rdr.GetInt32(0), rdr.GetString(1)));
+
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to MySQL...");
+            }
+            Globals.conn.Close();
+        }
+        private void LookupCustomer(int ID)
+        {
+            try
+            {
+                Globals.conn.Open();
+                // Perform database operations
+                string sql = $"SELECT * FROM customer WHERE customerId = {ID}";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Globals.CurrentCustomer = new Customer(rdr.GetInt32(0), rdr.GetString(1),
+                        rdr.GetInt32(2), rdr.GetInt32(3), rdr.GetDateTime(4), rdr.GetString(5),
+                        rdr.GetDateTime(6), rdr.GetString(7));
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to MySQL...");
+            }
+            Globals.conn.Close();
+        }
+        private void LookupAppointment(int ID)
+        {
+            try
+            {
+                Globals.conn.Open();
+                // Perform database operations
+                string sql = $"SELECT * FROM appointment WHERE appointmentId = {ID}";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Globals.CurrentAppointment = new Appointment(rdr.GetInt32(0), rdr.GetInt32(1),
+                        rdr.GetInt32(2), rdr.GetString(3), rdr.GetString(4), rdr.GetString(5),
+                        rdr.GetString(6), rdr.GetString(7), rdr.GetString(8), rdr.GetDateTime(9),
+                        rdr.GetDateTime(10), rdr.GetDateTime(11), rdr.GetString(12), rdr.GetDateTime(13),
+                        rdr.GetString(14));
                 }
                 rdr.Close();
             }

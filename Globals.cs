@@ -126,7 +126,6 @@ namespace JustinTownleySoftwareII
             }
             Globals.conn.Close();
             return success;
-
         }
 
 
