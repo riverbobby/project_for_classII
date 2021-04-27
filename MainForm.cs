@@ -16,8 +16,7 @@ namespace JustinTownleySoftwareII
         public MainForm()
         {
             InitializeComponent();
-            //resetting globals from selections
-            RefreshDisplay();
+            customersRadioButton.Checked = true;
             //formatting dateTimePicker
             dateTimePicker.CustomFormat = "MM/yyyy";
             dateTimePicker.ShowUpDown = true;
@@ -26,6 +25,7 @@ namespace JustinTownleySoftwareII
             comboBox.DataSource = Globals.Users;
             comboBox.DisplayMember = "UserName";
             comboBox.ValueMember = "UserID";
+            RefreshDisplay();
             //formatting displayDataGridView
             displayDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             displayDataGridView.DefaultCellStyle.SelectionBackColor = displayDataGridView.DefaultCellStyle.BackColor;
@@ -34,67 +34,132 @@ namespace JustinTownleySoftwareII
         }
         private void customersRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            ResetGlobals();
-            LoadCustomers(Globals.Customers);
-            displayDataGridView.DataSource = Globals.Customers;
-            displayTitleLabel.Text = "All Customers";
-            addButton.Text = "Add New Customer";
+            RefreshDisplay();
         }
         private void appointmentsRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            ResetGlobals();
-            LoadAppointments(Globals.Appointments);
-            displayDataGridView.DataSource = Globals.Appointments;
-            displayTitleLabel.Text = "All Appointments";
-            addButton.Text = "Add New Appointment";
+            RefreshDisplay();
         }
         private void appointments1RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (appointmentsRadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                appointmentsRadioButton.Checked = true;
+            }
         }
         private void appointments2RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (appointmentsRadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                appointmentsRadioButton.Checked = true;
+            }
         }
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (appointments2RadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                appointments2RadioButton.Checked = true;
+            }
         }
         private void reportRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            RefreshDisplay();
         }
         private void report1RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (reportRadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                reportRadioButton.Checked = true;
+            }
         }
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            if (report1RadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                report1RadioButton.Checked = true;
+            }
 
         }
         private void report2RadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            if (reportRadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                reportRadioButton.Checked = true;
+            }
 
         }
         private void report3RadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            if (reportRadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                reportRadioButton.Checked = true;
+            }
 
         }
         private void calendarRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            RefreshDisplay();
         }
         private void calendarWeekRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (calendarRadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                calendarRadioButton.Checked = true;
+            }
         }
         private void calendarMonthRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (calendarRadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                calendarRadioButton.Checked = true;
+            }
         }
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-
+            if (calendarRadioButton.Checked)
+            {
+                RefreshDisplay();
+            }
+            else
+            {
+                calendarRadioButton.Checked = true;
+            }
         }
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -136,6 +201,7 @@ namespace JustinTownleySoftwareII
                 {
                     customersRadioButton.Checked = true;
                 }
+                RefreshDisplay();
             }
             else
             {
@@ -143,6 +209,7 @@ namespace JustinTownleySoftwareII
                 {
                     appointmentsRadioButton.Checked = true;
                 }
+                RefreshDisplay();
             }
         }
         private void logOutButton_Click(object sender, EventArgs e)
@@ -157,14 +224,12 @@ namespace JustinTownleySoftwareII
             deleteButton.Enabled = true;
             if (customersRadioButton.Checked)
             {
-                MessageBox.Show($"{(int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value}");
                 Globals.CurrentCustomerID = (int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value;
                 LookupCustomer(Globals.CurrentCustomerID);
                 displayDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Green;
             }
             else
             {
-                MessageBox.Show($"{(int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value}");
                 Globals.CurrentAppointmentID = (int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value;
                 LookupAppointment(Globals.CurrentAppointmentID);
                 displayDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Green;
@@ -178,45 +243,98 @@ namespace JustinTownleySoftwareII
             {
                 LoadCustomers(Globals.Customers);
                 displayDataGridView.DataSource = Globals.Customers;
+                displayTitleLabel.Text = "All Customers";
+                addButton.Text = "Add New Customer";
             }
             else
             {
+                addButton.Text = "Add New Appointment";
                 LoadAppointments(Globals.Appointments);
                 if (appointmentsRadioButton.Checked)
                 {
                     if (appointments1RadioButton.Checked)
                     {
                         displayDataGridView.DataSource = Globals.Appointments;
+                        displayTitleLabel.Text = "All Appointments";
                     }
                     else
                     {
                         BindingList<Appointment> display = new BindingList<Appointment>();
-                        //following lambda statement used
+                        //following lambda statement used for LINQ filtering
                         foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.UserID == (int)comboBox.SelectedValue))
                         {
                             display.Add(app);
                         }
                         displayDataGridView.DataSource = display;
+                        displayTitleLabel.Text = "Appointments by Consultant";
                     }
                 }
                 else if (reportRadioButton.Checked)
                 {
                     if (report1RadioButton.Checked)
                     {
-
+                        BindingList<Appointment> display = new BindingList<Appointment>();
+                        //following lambda statement used for LINQ filtering
+                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.UserID == (int)comboBox.SelectedValue))
+                        {
+                            display.Add(app);
+                        }
+                        displayDataGridView.DataSource = display;
+                        displayTitleLabel.Text = "Number of Appointment Types by Month";
                     }
                     else if (report2RadioButton.Checked)
                     {
-
+                        BindingList<Appointment> display = new BindingList<Appointment>();
+                        //following lambda statement used for LINQ filtering
+                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.Start >= DateTime.Now))
+                        {
+                            display.Add(app);
+                        }
+                        displayDataGridView.DataSource = display;
+                        displayTitleLabel.Text = "Upcoming Appointments";
                     }
                     else
                     {
-
+                        BindingList<Appointment> display = new BindingList<Appointment>();
+                        //following lambda statement used for LINQ filtering
+                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.End <= DateTime.Now))
+                        {
+                            display.Add(app);
+                        }
+                        displayDataGridView.DataSource = display;
+                        displayTitleLabel.Text = "Past Appointments";
                     }
                 }
                 else
                 {
-
+                    if (calendarWeekRadioButton.Checked)
+                    {
+                        BindingList<Appointment> display = new BindingList<Appointment>();
+                        TimeSpan timeSpan = new TimeSpan(-(int)monthCalendar.SelectionStart.DayOfWeek,
+                            -(int)monthCalendar.SelectionStart.Hour, -(int)monthCalendar.SelectionStart.Minute,
+                            -(int)monthCalendar.SelectionStart.Second);
+                        DateTime weekBegin = monthCalendar.SelectionStart.Add(timeSpan);
+                        DateTime weekEnd = weekBegin.AddDays(6);
+                        MessageBox.Show($"{weekBegin}\n{weekEnd}");
+                        //following lambda statement used for LINQ filtering
+                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.Start <  weekBegin && app.End > weekEnd))
+                        {
+                            display.Add(app);
+                        }
+                        displayDataGridView.DataSource = display;
+                        displayTitleLabel.Text = "Appointments for Selected Week";
+                    }
+                    else
+                    {
+                        BindingList<Appointment> display = new BindingList<Appointment>();
+                        //following lambda statement used for LINQ filtering
+                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.UserID == (int)comboBox.SelectedValue))
+                        {
+                            display.Add(app);
+                        }
+                        displayDataGridView.DataSource = display;
+                        displayTitleLabel.Text = "Appointments for Selected Month";
+                    }
                 }
             }
         }
@@ -224,6 +342,12 @@ namespace JustinTownleySoftwareII
         {
             Globals.CurrentAppointmentID = -1;
             Globals.CurrentCustomerID = -1;
+            editButton.Enabled = false;
+            deleteButton.Enabled = false;
+            displayDataGridView.DefaultCellStyle.SelectionBackColor = displayDataGridView.DefaultCellStyle.BackColor;
+
+
+
         }
         private void LoadCustomers(BindingList<Customer> customers)
         {
