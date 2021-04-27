@@ -17,7 +17,7 @@ namespace JustinTownleySoftwareII
         {
             InitializeComponent();
             //resetting globals from selections
-            ResetGlobals();
+            RefreshDisplay();
             //formatting dateTimePicker
             dateTimePicker.CustomFormat = "MM/yyyy";
             dateTimePicker.ShowUpDown = true;
@@ -26,9 +26,6 @@ namespace JustinTownleySoftwareII
             comboBox.DataSource = Globals.Users;
             comboBox.DisplayMember = "UserName";
             comboBox.ValueMember = "UserID";
-            //populating displayDataGridView
-            LoadCustomers(Globals.Customers);
-            displayDataGridView.DataSource = Globals.Customers;
             //formatting displayDataGridView
             displayDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             displayDataGridView.DefaultCellStyle.SelectionBackColor = displayDataGridView.DefaultCellStyle.BackColor;
@@ -171,6 +168,56 @@ namespace JustinTownleySoftwareII
                 Globals.CurrentAppointmentID = (int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value;
                 LookupAppointment(Globals.CurrentAppointmentID);
                 displayDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Green;
+            }
+        }
+        private void RefreshDisplay()
+        {
+            ResetGlobals();
+            //decision tree for what to populate in displayDataGridView
+            if (customersRadioButton.Checked)
+            {
+                LoadCustomers(Globals.Customers);
+                displayDataGridView.DataSource = Globals.Customers;
+            }
+            else
+            {
+                LoadAppointments(Globals.Appointments);
+                if (appointmentsRadioButton.Checked)
+                {
+                    if (appointments1RadioButton.Checked)
+                    {
+                        displayDataGridView.DataSource = Globals.Appointments;
+                    }
+                    else
+                    {
+                        BindingList<Appointment> display = new BindingList<Appointment>();
+                        //following lambda statement used
+                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.UserID == (int)comboBox.SelectedValue))
+                        {
+                            display.Add(app);
+                        }
+                        displayDataGridView.DataSource = display;
+                    }
+                }
+                else if (reportRadioButton.Checked)
+                {
+                    if (report1RadioButton.Checked)
+                    {
+
+                    }
+                    else if (report2RadioButton.Checked)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }
             }
         }
         private void ResetGlobals()
