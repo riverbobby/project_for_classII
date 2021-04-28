@@ -21,7 +21,6 @@ namespace JustinTownleySoftwareII
             dateTimePicker.CustomFormat = "MM/yyyy";
             dateTimePicker.ShowUpDown = true;
             //populating comboBox
-            LoadUsers(Globals.Users);
             comboBox.DataSource = Globals.Users;
             comboBox.DisplayMember = "UserName";
             comboBox.ValueMember = "UserID";
@@ -263,7 +262,7 @@ namespace JustinTownleySoftwareII
                         BindingList<Appointment> display = new BindingList<Appointment>();
                         comboBox.ValueMember = "UserID";
                         //following lambda statement used for LINQ filtering that are for the selected consultant
-                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.UserID == (int)comboBox.SelectedValue))
+                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(i => i.UserID == (int)comboBox.SelectedValue))
                         {
                             display.Add(app);
                         }
@@ -294,11 +293,16 @@ namespace JustinTownleySoftwareII
                             count = 0; 
                             foreach (Appointment j in Globals.Appointments)
                             {
-                                ++count;
+                                if (i == j.TypeOfAppointment)
+                                {
+                                    ++count;
+                                }
                             }
                             strings.Add($"{count} of type {i}");
                         }
-                        displayDataGridView.DataSource = strings;
+                        var result = strings.Select(s => new { value = s }).ToList();
+                        displayDataGridView.DataSource = result;
+                        displayDataGridView.ColumnHeadersVisible = false;
                         displayTitleLabel.Text = "Number of Appointment Types by Month";
                     }
                     else if (report2RadioButton.Checked)
@@ -334,9 +338,8 @@ namespace JustinTownleySoftwareII
                             -(int)monthCalendar.SelectionStart.Second);
                         DateTime weekBegin = monthCalendar.SelectionStart.Add(timeSpan);
                         DateTime weekEnd = weekBegin.AddDays(7);
-                        MessageBox.Show($"{weekBegin}\n{weekEnd}");
                         //following lambda statement used for LINQ filtering appointments that occur in the selected week
-                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.Start <  weekBegin && app.End > weekEnd))
+                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => DateTime.Compare(app.Start, weekBegin) > 0 && DateTime.Compare(app.End, weekEnd) < 0))
                         {
                             display.Add(app);
                         }
@@ -412,29 +415,6 @@ namespace JustinTownleySoftwareII
                         rdr.GetString(6), rdr.GetString(7), rdr.GetString(8), rdr.GetDateTime(9),
                         rdr.GetDateTime(10), rdr.GetDateTime(11), rdr.GetString(12), rdr.GetDateTime(13),
                         rdr.GetString(14)));
-
-                }
-                rdr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error connecting to MySQL...");
-            }
-            Globals.conn.Close();
-        }
-        private void LoadUsers(BindingList<User> users)
-        {
-            try
-            {
-                users.Clear();
-                Globals.conn.Open();
-                // Perform database operations
-                string sql = "SELECT * FROM user";
-                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    users.Add(new User(rdr.GetInt32(0), rdr.GetString(1)));
 
                 }
                 rdr.Close();

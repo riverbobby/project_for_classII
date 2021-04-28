@@ -75,14 +75,12 @@ namespace JustinTownleySoftwareII
         private void AppointmentForm_VisibleChanged(object sender, EventArgs e)
         {
             LoadCustomers(Globals.Customers);
-            LoadUsers(Globals.Users);
             customerComboBox.DataSource = Globals.Customers;
             customerComboBox.DisplayMember = "Name";
             customerComboBox.ValueMember = "CustomerID";
             userIdComboBox.DataSource = Globals.Users;
             userIdComboBox.DisplayMember = "UserName";
             userIdComboBox.ValueMember = "UserID";
-
         }
         private void LoadCustomers(BindingList<Customer> customers)
         {
@@ -99,29 +97,6 @@ namespace JustinTownleySoftwareII
                     customers.Add(new Customer(rdr.GetInt32(0), rdr.GetString(1),
                         rdr.GetInt32(2), rdr.GetInt32(3), rdr.GetDateTime(4), rdr.GetString(5),
                         rdr.GetDateTime(6), rdr.GetString(7)));
-
-                }
-                rdr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error connecting to MySQL...");
-            }
-            Globals.conn.Close();
-        }
-        private void LoadUsers(BindingList<User> users)
-        {
-            try
-            {
-                users.Clear();
-                Globals.conn.Open();
-                // Perform database operations
-                string sql = "SELECT * FROM user";
-                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    users.Add(new User(rdr.GetInt32(0), rdr.GetString(1)));
 
                 }
                 rdr.Close();
@@ -188,15 +163,11 @@ namespace JustinTownleySoftwareII
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            MessageBox.Show($"{Globals.CurrentAppointmentID}");
             //validating fields
             StringBuilder message = new StringBuilder();
             LoadAppointments(Globals.Appointments);
             bool valid = true;
-            if (string.IsNullOrWhiteSpace(titleTextBox.Text))
-            {
-                message.Append("Please enter a title\n");
-                valid = false;
-            }
             if (string.IsNullOrWhiteSpace(typeTextBox.Text))
             {
                 message.Append("Please enter a type of appointment\n");
@@ -205,11 +176,11 @@ namespace JustinTownleySoftwareII
             //validating start and end times
             string timeString = $"{startDatePicker.Value.ToShortDateString()} {startTimePicker.Value.ToShortTimeString()}";
             DateTime begin = DateTime.Parse(timeString);
-            timeString = $"{endTimePicker.Value.ToShortDateString()} {endTimePicker.Value.ToShortTimeString()}";
+            timeString = $"{endDatePicker.Value.ToShortDateString()} {endTimePicker.Value.ToShortTimeString()}";
             DateTime end = DateTime.Parse(timeString);
             foreach (var appointment in Globals.Appointments)
             {
-                if (begin < appointment.End && end > appointment.Start)
+                if (begin < appointment.End && end > appointment.Start && Globals.CurrentAppointment.AppointmentID != appointment.AppointmentID)
                 {
                     valid = false;
                     message.Append($"appointment overlaps with appointment #{appointment.AppointmentID}\n");
@@ -220,7 +191,7 @@ namespace JustinTownleySoftwareII
                 valid = false;
                 message.Append($"please schedule the appointment between the hours 8 AM and 5 PM, Monday - Friday\n");
             }
-            if (begin > end)
+            if (DateTime.Compare(begin, end) > 0)
             {
                 valid = false;
                 message.Append($"please schedule the End of appointment after the Beginning of appointment\n");
@@ -260,7 +231,7 @@ namespace JustinTownleySoftwareII
                         $"url = \'{urlTextBox.Text}\', start = \'{Globals.toSqlDate(begin.ToUniversalTime())}\', " +
                         $"end = \'{Globals.toSqlDate(end.ToUniversalTime())}\', lastUpdate = \'{Globals.toSqlDate(theDate)}\', " +
                         $"lastUpdateBy = \'{Globals.CurrentUser.UserName}\'";
-                    if (Globals.Update($"appointment", myBuilder, "appointmentId", Globals.CurrentAppointment.CustomerID))
+                    if (Globals.Update($"appointment", myBuilder, "appointmentId", Globals.CurrentAppointment.AppointmentID))
                     {
                         Globals.CurrentAppointmentID = -1;
                         this.Close();

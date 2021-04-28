@@ -20,6 +20,8 @@ namespace JustinTownleySoftwareII
         {
             //starting mySQL connection
             Globals.conn = new MySqlConnection(Globals.connStr);
+            //loading Users
+
             //try
             //{
             //    Globals.conn.Open();

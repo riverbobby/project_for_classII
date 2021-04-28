@@ -67,6 +67,8 @@ namespace JustinTownleySoftwareII
                         }
                         rdr.Close();
                         Globals.conn.Close();
+                        //load Users
+                        LoadUsers(Globals.Users);
                         //hide LoginForm
                         this.Hide();
                         MainForm mainForm = new MainForm();
@@ -112,5 +114,29 @@ namespace JustinTownleySoftwareII
                 }
             }
         }
+        private void LoadUsers(BindingList<User> users)
+        {
+            try
+            {
+                users.Clear();
+                Globals.conn.Open();
+                // Perform database operations
+                string sql = "SELECT * FROM user";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    users.Add(new User(rdr.GetInt32(0), rdr.GetString(1)));
+
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to MySQL...");
+            }
+            Globals.conn.Close();
+        }
+
     }
 }
