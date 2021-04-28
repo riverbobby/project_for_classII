@@ -25,12 +25,13 @@ namespace JustinTownleySoftwareII
             comboBox.DataSource = Globals.Users;
             comboBox.DisplayMember = "UserName";
             comboBox.ValueMember = "UserID";
-            RefreshDisplay();
             //formatting displayDataGridView
             displayDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             displayDataGridView.DefaultCellStyle.SelectionBackColor = displayDataGridView.DefaultCellStyle.BackColor;
             displayDataGridView.DefaultCellStyle.SelectionForeColor = displayDataGridView.DefaultCellStyle.ForeColor;
             displayDataGridView.RowHeadersVisible = false;
+            //loading displayDataGridView
+            RefreshDisplay();
         }
         private void customersRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -260,7 +261,8 @@ namespace JustinTownleySoftwareII
                     else
                     {
                         BindingList<Appointment> display = new BindingList<Appointment>();
-                        //following lambda statement used for LINQ filtering
+                        comboBox.ValueMember = "UserID";
+                        //following lambda statement used for LINQ filtering that are for the selected consultant
                         foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.UserID == (int)comboBox.SelectedValue))
                         {
                             display.Add(app);
@@ -273,19 +275,36 @@ namespace JustinTownleySoftwareII
                 {
                     if (report1RadioButton.Checked)
                     {
-                        BindingList<Appointment> display = new BindingList<Appointment>();
-                        //following lambda statement used for LINQ filtering
-                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.UserID == (int)comboBox.SelectedValue))
+                        BindingList<string> unique = new BindingList<string>();
+                        BindingList<string> strings = new BindingList<string>();
+                        int month = (int)dateTimePicker.Value.Month;
+                        int year = (int)dateTimePicker.Value.Year;
+                        //following lambda is used for LINQ filtering of appointments occuring in selected month and year
+                        foreach (Appointment i in Globals.Appointments.Where<Appointment>(app => app.Start.Month == month && app.Start.Year == year))
                         {
-                            display.Add(app);
+                            if (!unique.Contains(i.TypeOfAppointment))
+                            {
+                                unique.Add(i.TypeOfAppointment);
+                            }
                         }
-                        displayDataGridView.DataSource = display;
+                        strings.Append($"There are {unique.Count} appointment types in the selected month:");
+                        int count;
+                        foreach (string i in unique)
+                        {
+                            count = 0; 
+                            foreach (Appointment j in Globals.Appointments)
+                            {
+                                ++count;
+                            }
+                            strings.Add($"{count} of type {i}");
+                        }
+                        displayDataGridView.DataSource = strings;
                         displayTitleLabel.Text = "Number of Appointment Types by Month";
                     }
                     else if (report2RadioButton.Checked)
                     {
                         BindingList<Appointment> display = new BindingList<Appointment>();
-                        //following lambda statement used for LINQ filtering
+                        //following lambda is used for LINQ filtering of appointments that occur after the current DateTime
                         foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.Start >= DateTime.Now))
                         {
                             display.Add(app);
@@ -296,7 +315,7 @@ namespace JustinTownleySoftwareII
                     else
                     {
                         BindingList<Appointment> display = new BindingList<Appointment>();
-                        //following lambda statement used for LINQ filtering
+                        //following lambda statement used for LINQ filtering of appointments that occur before the current DateTime
                         foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.End <= DateTime.Now))
                         {
                             display.Add(app);
@@ -314,9 +333,9 @@ namespace JustinTownleySoftwareII
                             -(int)monthCalendar.SelectionStart.Hour, -(int)monthCalendar.SelectionStart.Minute,
                             -(int)monthCalendar.SelectionStart.Second);
                         DateTime weekBegin = monthCalendar.SelectionStart.Add(timeSpan);
-                        DateTime weekEnd = weekBegin.AddDays(6);
+                        DateTime weekEnd = weekBegin.AddDays(7);
                         MessageBox.Show($"{weekBegin}\n{weekEnd}");
-                        //following lambda statement used for LINQ filtering
+                        //following lambda statement used for LINQ filtering appointments that occur in the selected week
                         foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.Start <  weekBegin && app.End > weekEnd))
                         {
                             display.Add(app);
@@ -327,10 +346,12 @@ namespace JustinTownleySoftwareII
                     else
                     {
                         BindingList<Appointment> display = new BindingList<Appointment>();
-                        //following lambda statement used for LINQ filtering
-                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(app => app.UserID == (int)comboBox.SelectedValue))
+                        int month = (int)monthCalendar.SelectionStart.Month;
+                        int year = (int)monthCalendar.SelectionStart.Year;
+                        //following lambda is used for LINQ filtering of appointments occuring in selected month and year
+                        foreach (Appointment i in Globals.Appointments.Where<Appointment>(app => app.Start.Month == month && app.Start.Year == year))
                         {
-                            display.Add(app);
+                            display.Add(i);
                         }
                         displayDataGridView.DataSource = display;
                         displayTitleLabel.Text = "Appointments for Selected Month";
