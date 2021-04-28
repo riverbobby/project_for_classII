@@ -332,7 +332,7 @@ namespace JustinTownleySoftwareII
                         int month = (int)dateTimePicker.Value.Month;
                         int year = (int)dateTimePicker.Value.Year;
                         //following lambda is used for LINQ filtering of appointments occuring in selected month and year
-                        foreach (Appointment i in Globals.Appointments.Where<Appointment>(app => (int)app.Start.Month == month && (int)app.Start.Year == year))
+                        foreach (Appointment i in Globals.Appointments.Where<Appointment>(app => ((int)app.Start.Month == month && (int)app.Start.Year == year)))
                         {
                             if (!unique.Contains(i.TypeOfAppointment))
                             {
@@ -344,7 +344,7 @@ namespace JustinTownleySoftwareII
                         foreach (string i in unique)
                         {
                             count = 0; 
-                            foreach (Appointment j in Globals.Appointments)
+                            foreach (Appointment j in Globals.Appointments.Where<Appointment>(app => ((int)app.Start.Month == month && (int)app.Start.Year == year)))
                             {
                                 if (i == j.TypeOfAppointment)
                                 {
