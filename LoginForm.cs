@@ -195,20 +195,20 @@ namespace JustinTownleySoftwareII
         }
         private void CheckAppointments(BindingList<Appointment> appointments)
         {
-            List<string> messageBuilder = new List<string>();
+            StringBuilder messageBuilder = new StringBuilder();
             //the next 3 lambdas are to use LINQ to filter appointments, users, and customers
-            foreach (Appointment i in Globals.Appointments.Where<Appointment>(app => app.Start >= DateTime.Now && app.Start <= DateTime.Now))
+            foreach (Appointment i in Globals.Appointments.Where<Appointment>(app => app.Start >= DateTime.Now && app.Start <= DateTime.Now.AddMinutes(15)))
             {
                 foreach (User j in Globals.Users.Where<User>(user => user.UserID == i.UserID))
                 {
                     foreach (Customer k in Globals.Customers.Where<Customer>(customer => customer.CustomerID == i.CustomerID))
                     {
-                        messageBuilder.Add($"User {j.UserName} has an appointment that begins at {i.Start.ToShortTimeString()} with {k.Name}\n");
+                        messageBuilder.Append($"User {j.UserName} has an appointment that begins at {i.Start.ToShortTimeString()} with {k.Name}\n");
                     }
 
                 }
             }
-            if (messageBuilder.Count != 0)
+            if (messageBuilder.Length != 0)
             {
                 MessageBox.Show(messageBuilder.ToString());
             }

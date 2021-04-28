@@ -166,7 +166,6 @@ namespace JustinTownleySoftwareII
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{Globals.CurrentAppointmentID}");
             //validating fields
             StringBuilder message = new StringBuilder();
             LoadAppointments(Globals.Appointments);
