@@ -22,7 +22,6 @@ namespace JustinTownleySoftwareII
             {
                 //populating current address from CurrentAppointmentID
                 LookupAppointment(Globals.CurrentAppointmentID);
-                MessageBox.Show("suspected second if editing");
                 appointmentIdTextBox.Text = Globals.CurrentAppointment.AppointmentID.ToString();
                 titleTextBox.Text = Globals.CurrentAppointment.Title;
                 descriptionTextBox.Text = Globals.CurrentAppointment.Description;
@@ -42,7 +41,6 @@ namespace JustinTownleySoftwareII
             else
             {
                 appointmentIdTextBox.Text = "Auto generated when saved";
-                MessageBox.Show("suspected 2nd if new");
             }
 
         }
@@ -75,7 +73,6 @@ namespace JustinTownleySoftwareII
         private void AppointmentForm_VisibleChanged(object sender, EventArgs e)
         {
             LoadCustomers(Globals.Customers);
-            MessageBox.Show("suspectedFirst");
             customerComboBox.DataSource = Globals.Customers;
             customerComboBox.DisplayMember = "Name";
             customerComboBox.ValueMember = "CustomerID";
@@ -186,7 +183,7 @@ namespace JustinTownleySoftwareII
             DateTime end = DateTime.Parse(timeString);
             foreach (var appointment in Globals.Appointments)
             {
-                if (begin < appointment.End && end > appointment.Start && Globals.CurrentAppointment.AppointmentID != appointment.AppointmentID)
+                if (begin < appointment.End && end > appointment.Start && Globals.CurrentAppointmentID != appointment.AppointmentID)
                 {
                     valid = false;
                     message.Append($"appointment overlaps with appointment #{appointment.AppointmentID}\n");

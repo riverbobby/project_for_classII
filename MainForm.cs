@@ -269,7 +269,6 @@ namespace JustinTownleySoftwareII
             {
                 addButton.Text = "Add New Appointment";
                 LoadAppointments(Globals.Appointments);
-
                 if (appointmentsRadioButton.Checked)
                 {
                     if (appointments1RadioButton.Checked)
@@ -297,30 +296,36 @@ namespace JustinTownleySoftwareII
                     else
                     {
                         BindingList<Appointment> display = new BindingList<Appointment>();
-                        comboBox.ValueMember = "UserID";
-                        //following lambda statement used for LINQ filtering that are for the selected consultant
-                        foreach (Appointment app in Globals.Appointments.Where<Appointment>(i => i.UserID == (int)comboBox.SelectedValue))
+                        try
                         {
-                            display.Add(app);
+                            //following lambda statement used for LINQ filtering that are for the selected consultant
+                            foreach (Appointment app in Globals.Appointments.Where<Appointment>(i => i.UserID == (int)comboBox.SelectedValue))
+                            {
+                                display.Add(app);
+                            }
+                            displayDataGridView.DataSource = display;
+                            displayTitleLabel.Text = "Appointments by Consultant";
+                            //formatting headers in displayDataGridView
+                            displayDataGridView.Columns["AppointmentID"].DisplayIndex = 0;
+                            displayDataGridView.Columns["CustomerID"].DisplayIndex = 1;
+                            displayDataGridView.Columns["UserID"].DisplayIndex = 2;
+                            displayDataGridView.Columns["TypeOfAppointment"].DisplayIndex = 3;
+                            displayDataGridView.Columns["Start"].DisplayIndex = 4;
+                            displayDataGridView.Columns["End"].DisplayIndex = 5;
+                            displayDataGridView.Columns["Title"].DisplayIndex = 6;
+                            displayDataGridView.Columns["Description"].DisplayIndex = 7;
+                            displayDataGridView.Columns["Location"].DisplayIndex = 8;
+                            displayDataGridView.Columns["Contact"].DisplayIndex = 9;
+                            displayDataGridView.Columns["URL"].DisplayIndex = 10;
+                            displayDataGridView.Columns["CreateDate"].DisplayIndex = 11;
+                            displayDataGridView.Columns["CreatedBy"].DisplayIndex = 12;
+                            displayDataGridView.Columns["LastUpdate"].DisplayIndex = 13;
+                            displayDataGridView.Columns["LastUpdateBy"].DisplayIndex = 14;
                         }
-                        displayDataGridView.DataSource = display;
-                        displayTitleLabel.Text = "Appointments by Consultant";
-                        //formatting headers in displayDataGridView
-                        displayDataGridView.Columns["AppointmentID"].DisplayIndex = 0;
-                        displayDataGridView.Columns["CustomerID"].DisplayIndex = 1;
-                        displayDataGridView.Columns["UserID"].DisplayIndex = 2;
-                        displayDataGridView.Columns["TypeOfAppointment"].DisplayIndex = 3;
-                        displayDataGridView.Columns["Start"].DisplayIndex = 4;
-                        displayDataGridView.Columns["End"].DisplayIndex = 5;
-                        displayDataGridView.Columns["Title"].DisplayIndex = 6;
-                        displayDataGridView.Columns["Description"].DisplayIndex = 7;
-                        displayDataGridView.Columns["Location"].DisplayIndex = 8;
-                        displayDataGridView.Columns["Contact"].DisplayIndex = 9;
-                        displayDataGridView.Columns["URL"].DisplayIndex = 10;
-                        displayDataGridView.Columns["CreateDate"].DisplayIndex = 11;
-                        displayDataGridView.Columns["CreatedBy"].DisplayIndex = 12;
-                        displayDataGridView.Columns["LastUpdate"].DisplayIndex = 13;
-                        displayDataGridView.Columns["LastUpdateBy"].DisplayIndex = 14;
+                        catch
+                        {
+                            comboBox.SelectedIndex = 1;
+                        }
                     }
                 }
                 else if (reportRadioButton.Checked)

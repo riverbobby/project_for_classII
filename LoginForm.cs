@@ -69,6 +69,10 @@ namespace JustinTownleySoftwareII
                         Globals.conn.Close();
                         //load Users
                         LoadUsers(Globals.Users);
+                        //check for appointments in the next 15 minutes
+                        LoadAppointments(Globals.Appointments);
+                        LoadCustomers(Globals.Customers);
+                        CheckAppointments(Globals.Appointments);
                         //hide LoginForm
                         this.Hide();
                         MainForm mainForm = new MainForm();
@@ -136,6 +140,78 @@ namespace JustinTownleySoftwareII
                 MessageBox.Show("Error connecting to MySQL...");
             }
             Globals.conn.Close();
+        }
+        private void LoadAppointments(BindingList<Appointment> appointments)
+        {
+            try
+            {
+                appointments.Clear();
+                Globals.conn.Open();
+                // Perform databaase operations
+                string sql = "SELECT * FROM appointment";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    appointments.Add(new Appointment(rdr.GetInt32(0), rdr.GetInt32(1),
+                        rdr.GetInt32(2), rdr.GetString(3), rdr.GetString(4), rdr.GetString(5),
+                        rdr.GetString(6), rdr.GetString(7), rdr.GetString(8), rdr.GetDateTime(9),
+                        rdr.GetDateTime(10), rdr.GetDateTime(11), rdr.GetString(12), rdr.GetDateTime(13),
+                        rdr.GetString(14)));
+
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to MySQL...");
+            }
+            Globals.conn.Close();
+        }
+        private void LoadCustomers(BindingList<Customer> customers)
+        {
+            try
+            {
+                customers.Clear();
+                Globals.conn.Open();
+                // Perform database operations
+                string sql = "SELECT * FROM customer";
+                MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    customers.Add(new Customer(rdr.GetInt32(0), rdr.GetString(1),
+                        rdr.GetInt32(2), rdr.GetInt32(3), rdr.GetDateTime(4), rdr.GetString(5),
+                        rdr.GetDateTime(6), rdr.GetString(7)));
+
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to MySQL...");
+            }
+            Globals.conn.Close();
+        }
+        private void CheckAppointments(BindingList<Appointment> appointments)
+        {
+            List<string> messageBuilder = new List<string>();
+            //the next 3 lambdas are to use LINQ to filter appointments, users, and customers
+            foreach (Appointment i in Globals.Appointments.Where<Appointment>(app => app.Start >= DateTime.Now && app.Start <= DateTime.Now))
+            {
+                foreach (User j in Globals.Users.Where<User>(user => user.UserID == i.UserID))
+                {
+                    foreach (Customer k in Globals.Customers.Where<Customer>(customer => customer.CustomerID == i.CustomerID))
+                    {
+                        messageBuilder.Add($"User {j.UserName} has an appointment that begins at {i.Start.ToShortTimeString()} with {k.Name}\n");
+                    }
+
+                }
+            }
+            if (messageBuilder.Count != 0)
+            {
+                MessageBox.Show(messageBuilder.ToString());
+            }
         }
 
     }
