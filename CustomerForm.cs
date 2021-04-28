@@ -22,7 +22,6 @@ namespace JustinTownleySoftwareII
                 LookupCustomer(Globals.CurrentCustomerID);
                 customerIdTextBox.Text = Globals.CurrentCustomer.CustomerID.ToString();
                 nameTextBox.Text = Globals.CurrentCustomer.Name;
-                addressComboBox.SelectedValue = Globals.CurrentCustomer.AddressID;
                 string[] arr = { "No", "Yes" };
                 activeComboBox.DataSource = arr;
                 activeComboBox.SelectedIndex = Globals.CurrentCustomer.Active;
@@ -95,7 +94,10 @@ namespace JustinTownleySoftwareII
             addressComboBox.DataSource = Globals.Addresses;
             addressComboBox.DisplayMember = "AddressField";
             addressComboBox.ValueMember = "AddressID";
-
+            if (Globals.CurrentCustomerID != -1)
+            {
+                addressComboBox.SelectedValue = Globals.CurrentCustomer.AddressID;
+            }
         }
 
         private void addAddressButton_Click(object sender, EventArgs e)

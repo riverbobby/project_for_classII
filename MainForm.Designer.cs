@@ -73,6 +73,7 @@ namespace JustinTownleySoftwareII
             // 
             this.displayDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.displayDataGridView.Location = new System.Drawing.Point(266, 68);
+            this.displayDataGridView.MultiSelect = false;
             this.displayDataGridView.Name = "displayDataGridView";
             this.displayDataGridView.ReadOnly = true;
             this.displayDataGridView.Size = new System.Drawing.Size(994, 658);

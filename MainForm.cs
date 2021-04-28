@@ -16,7 +16,6 @@ namespace JustinTownleySoftwareII
         public MainForm()
         {
             InitializeComponent();
-            customersRadioButton.Checked = true;
             //formatting dateTimePicker
             dateTimePicker.CustomFormat = "MM/yyyy";
             dateTimePicker.ShowUpDown = true;
@@ -24,11 +23,8 @@ namespace JustinTownleySoftwareII
             comboBox.DataSource = Globals.Users;
             comboBox.DisplayMember = "UserName";
             comboBox.ValueMember = "UserID";
-            //formatting displayDataGridView
-            displayDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            displayDataGridView.DefaultCellStyle.SelectionBackColor = displayDataGridView.DefaultCellStyle.BackColor;
-            displayDataGridView.DefaultCellStyle.SelectionForeColor = displayDataGridView.DefaultCellStyle.ForeColor;
-            displayDataGridView.RowHeadersVisible = false;
+            //checking customerRadioButton
+            customersRadioButton.Checked = true;
             //loading displayDataGridView
             RefreshDisplay();
         }
@@ -220,24 +216,38 @@ namespace JustinTownleySoftwareII
         }
         private void displayDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            editButton.Enabled = true;
-            deleteButton.Enabled = true;
             if (customersRadioButton.Checked)
             {
                 Globals.CurrentCustomerID = (int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value;
                 LookupCustomer(Globals.CurrentCustomerID);
                 displayDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Green;
+                editButton.Enabled = true;
+                deleteButton.Enabled = true;
+            }
+            else if (reportRadioButton.Checked && report1RadioButton.Checked)
+            {
+                displayDataGridView.DefaultCellStyle.SelectionBackColor = displayDataGridView.DefaultCellStyle.BackColor;
             }
             else
             {
                 Globals.CurrentAppointmentID = (int)displayDataGridView.Rows[e.RowIndex].Cells[0].Value;
                 LookupAppointment(Globals.CurrentAppointmentID);
                 displayDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Green;
+                editButton.Enabled = true;
+                deleteButton.Enabled = true;
             }
         }
         private void RefreshDisplay()
         {
             ResetGlobals();
+            //formatting displayDataGridView
+            displayDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            displayDataGridView.ColumnHeadersVisible = true;
+            displayDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            displayDataGridView.DefaultCellStyle.SelectionBackColor = displayDataGridView.DefaultCellStyle.BackColor;
+            displayDataGridView.DefaultCellStyle.SelectionForeColor = displayDataGridView.DefaultCellStyle.ForeColor;
+            displayDataGridView.RowHeadersVisible = false;
+            displayDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             //decision tree for what to populate in displayDataGridView
             if (customersRadioButton.Checked)
             {
@@ -245,17 +255,44 @@ namespace JustinTownleySoftwareII
                 displayDataGridView.DataSource = Globals.Customers;
                 displayTitleLabel.Text = "All Customers";
                 addButton.Text = "Add New Customer";
+                //formatting headers in displayDataGridView
+                displayDataGridView.Columns["CustomerID"].DisplayIndex = 0;
+                displayDataGridView.Columns["Name"].DisplayIndex = 1;
+                displayDataGridView.Columns["AddressId"].DisplayIndex = 2;
+                displayDataGridView.Columns["Active"].DisplayIndex = 3;
+                displayDataGridView.Columns["CreateDate"].DisplayIndex = 4;
+                displayDataGridView.Columns["CreatedBy"].DisplayIndex = 5;
+                displayDataGridView.Columns["LastUpdate"].DisplayIndex = 6;
+                displayDataGridView.Columns["LastUpdateBy"].DisplayIndex = 7;
             }
             else
             {
                 addButton.Text = "Add New Appointment";
                 LoadAppointments(Globals.Appointments);
+
                 if (appointmentsRadioButton.Checked)
                 {
                     if (appointments1RadioButton.Checked)
                     {
                         displayDataGridView.DataSource = Globals.Appointments;
                         displayTitleLabel.Text = "All Appointments";
+                        //formatting headers in displayDataGridView
+                        displayDataGridView.Columns["AppointmentID"].DisplayIndex = 0;
+                        displayDataGridView.Columns["CustomerID"].DisplayIndex = 1;
+                        displayDataGridView.Columns["UserID"].DisplayIndex = 2;
+                        displayDataGridView.Columns["TypeOfAppointment"].DisplayIndex = 3;
+                        displayDataGridView.Columns["Start"].DisplayIndex = 4;
+                        displayDataGridView.Columns["End"].DisplayIndex = 5;
+                        displayDataGridView.Columns["Title"].DisplayIndex = 6;
+                        displayDataGridView.Columns["Description"].DisplayIndex = 7;
+                        displayDataGridView.Columns["Location"].DisplayIndex = 8;
+                        displayDataGridView.Columns["Contact"].DisplayIndex = 9;
+                        displayDataGridView.Columns["URL"].DisplayIndex = 10;
+                        displayDataGridView.Columns["CreateDate"].DisplayIndex = 11;
+                        displayDataGridView.Columns["CreatedBy"].DisplayIndex = 12;
+                        displayDataGridView.Columns["LastUpdate"].DisplayIndex = 13;
+                        displayDataGridView.Columns["LastUpdateBy"].DisplayIndex = 14;
+
                     }
                     else
                     {
@@ -268,6 +305,22 @@ namespace JustinTownleySoftwareII
                         }
                         displayDataGridView.DataSource = display;
                         displayTitleLabel.Text = "Appointments by Consultant";
+                        //formatting headers in displayDataGridView
+                        displayDataGridView.Columns["AppointmentID"].DisplayIndex = 0;
+                        displayDataGridView.Columns["CustomerID"].DisplayIndex = 1;
+                        displayDataGridView.Columns["UserID"].DisplayIndex = 2;
+                        displayDataGridView.Columns["TypeOfAppointment"].DisplayIndex = 3;
+                        displayDataGridView.Columns["Start"].DisplayIndex = 4;
+                        displayDataGridView.Columns["End"].DisplayIndex = 5;
+                        displayDataGridView.Columns["Title"].DisplayIndex = 6;
+                        displayDataGridView.Columns["Description"].DisplayIndex = 7;
+                        displayDataGridView.Columns["Location"].DisplayIndex = 8;
+                        displayDataGridView.Columns["Contact"].DisplayIndex = 9;
+                        displayDataGridView.Columns["URL"].DisplayIndex = 10;
+                        displayDataGridView.Columns["CreateDate"].DisplayIndex = 11;
+                        displayDataGridView.Columns["CreatedBy"].DisplayIndex = 12;
+                        displayDataGridView.Columns["LastUpdate"].DisplayIndex = 13;
+                        displayDataGridView.Columns["LastUpdateBy"].DisplayIndex = 14;
                     }
                 }
                 else if (reportRadioButton.Checked)
@@ -279,14 +332,14 @@ namespace JustinTownleySoftwareII
                         int month = (int)dateTimePicker.Value.Month;
                         int year = (int)dateTimePicker.Value.Year;
                         //following lambda is used for LINQ filtering of appointments occuring in selected month and year
-                        foreach (Appointment i in Globals.Appointments.Where<Appointment>(app => app.Start.Month == month && app.Start.Year == year))
+                        foreach (Appointment i in Globals.Appointments.Where<Appointment>(app => (int)app.Start.Month == month && (int)app.Start.Year == year))
                         {
                             if (!unique.Contains(i.TypeOfAppointment))
                             {
                                 unique.Add(i.TypeOfAppointment);
                             }
                         }
-                        strings.Append($"There are {unique.Count} appointment types in the selected month:");
+                        strings.Add($"There are {unique.Count} appointment types in the selected month:");
                         int count;
                         foreach (string i in unique)
                         {
@@ -315,6 +368,22 @@ namespace JustinTownleySoftwareII
                         }
                         displayDataGridView.DataSource = display;
                         displayTitleLabel.Text = "Upcoming Appointments";
+                        //formatting headers in displayDataGridView
+                        displayDataGridView.Columns["AppointmentID"].DisplayIndex = 0;
+                        displayDataGridView.Columns["CustomerID"].DisplayIndex = 1;
+                        displayDataGridView.Columns["UserID"].DisplayIndex = 2;
+                        displayDataGridView.Columns["TypeOfAppointment"].DisplayIndex = 3;
+                        displayDataGridView.Columns["Start"].DisplayIndex = 4;
+                        displayDataGridView.Columns["End"].DisplayIndex = 5;
+                        displayDataGridView.Columns["Title"].DisplayIndex = 6;
+                        displayDataGridView.Columns["Description"].DisplayIndex = 7;
+                        displayDataGridView.Columns["Location"].DisplayIndex = 8;
+                        displayDataGridView.Columns["Contact"].DisplayIndex = 9;
+                        displayDataGridView.Columns["URL"].DisplayIndex = 10;
+                        displayDataGridView.Columns["CreateDate"].DisplayIndex = 11;
+                        displayDataGridView.Columns["CreatedBy"].DisplayIndex = 12;
+                        displayDataGridView.Columns["LastUpdate"].DisplayIndex = 13;
+                        displayDataGridView.Columns["LastUpdateBy"].DisplayIndex = 14;
                     }
                     else
                     {
@@ -326,6 +395,22 @@ namespace JustinTownleySoftwareII
                         }
                         displayDataGridView.DataSource = display;
                         displayTitleLabel.Text = "Past Appointments";
+                        //formatting headers in displayDataGridView
+                        displayDataGridView.Columns["AppointmentID"].DisplayIndex = 0;
+                        displayDataGridView.Columns["CustomerID"].DisplayIndex = 1;
+                        displayDataGridView.Columns["UserID"].DisplayIndex = 2;
+                        displayDataGridView.Columns["TypeOfAppointment"].DisplayIndex = 3;
+                        displayDataGridView.Columns["Start"].DisplayIndex = 4;
+                        displayDataGridView.Columns["End"].DisplayIndex = 5;
+                        displayDataGridView.Columns["Title"].DisplayIndex = 6;
+                        displayDataGridView.Columns["Description"].DisplayIndex = 7;
+                        displayDataGridView.Columns["Location"].DisplayIndex = 8;
+                        displayDataGridView.Columns["Contact"].DisplayIndex = 9;
+                        displayDataGridView.Columns["URL"].DisplayIndex = 10;
+                        displayDataGridView.Columns["CreateDate"].DisplayIndex = 11;
+                        displayDataGridView.Columns["CreatedBy"].DisplayIndex = 12;
+                        displayDataGridView.Columns["LastUpdate"].DisplayIndex = 13;
+                        displayDataGridView.Columns["LastUpdateBy"].DisplayIndex = 14;
                     }
                 }
                 else
@@ -345,6 +430,22 @@ namespace JustinTownleySoftwareII
                         }
                         displayDataGridView.DataSource = display;
                         displayTitleLabel.Text = "Appointments for Selected Week";
+                        //formatting headers in displayDataGridView
+                        displayDataGridView.Columns["AppointmentID"].DisplayIndex = 0;
+                        displayDataGridView.Columns["CustomerID"].DisplayIndex = 1;
+                        displayDataGridView.Columns["UserID"].DisplayIndex = 2;
+                        displayDataGridView.Columns["TypeOfAppointment"].DisplayIndex = 3;
+                        displayDataGridView.Columns["Start"].DisplayIndex = 4;
+                        displayDataGridView.Columns["End"].DisplayIndex = 5;
+                        displayDataGridView.Columns["Title"].DisplayIndex = 6;
+                        displayDataGridView.Columns["Description"].DisplayIndex = 7;
+                        displayDataGridView.Columns["Location"].DisplayIndex = 8;
+                        displayDataGridView.Columns["Contact"].DisplayIndex = 9;
+                        displayDataGridView.Columns["URL"].DisplayIndex = 10;
+                        displayDataGridView.Columns["CreateDate"].DisplayIndex = 11;
+                        displayDataGridView.Columns["CreatedBy"].DisplayIndex = 12;
+                        displayDataGridView.Columns["LastUpdate"].DisplayIndex = 13;
+                        displayDataGridView.Columns["LastUpdateBy"].DisplayIndex = 14;
                     }
                     else
                     {
@@ -358,6 +459,22 @@ namespace JustinTownleySoftwareII
                         }
                         displayDataGridView.DataSource = display;
                         displayTitleLabel.Text = "Appointments for Selected Month";
+                        //formatting headers in displayDataGridView
+                        displayDataGridView.Columns["AppointmentID"].DisplayIndex = 0;
+                        displayDataGridView.Columns["CustomerID"].DisplayIndex = 1;
+                        displayDataGridView.Columns["UserID"].DisplayIndex = 2;
+                        displayDataGridView.Columns["TypeOfAppointment"].DisplayIndex = 3;
+                        displayDataGridView.Columns["Start"].DisplayIndex = 4;
+                        displayDataGridView.Columns["End"].DisplayIndex = 5;
+                        displayDataGridView.Columns["Title"].DisplayIndex = 6;
+                        displayDataGridView.Columns["Description"].DisplayIndex = 7;
+                        displayDataGridView.Columns["Location"].DisplayIndex = 8;
+                        displayDataGridView.Columns["Contact"].DisplayIndex = 9;
+                        displayDataGridView.Columns["URL"].DisplayIndex = 10;
+                        displayDataGridView.Columns["CreateDate"].DisplayIndex = 11;
+                        displayDataGridView.Columns["CreatedBy"].DisplayIndex = 12;
+                        displayDataGridView.Columns["LastUpdate"].DisplayIndex = 13;
+                        displayDataGridView.Columns["LastUpdateBy"].DisplayIndex = 14;
                     }
                 }
             }

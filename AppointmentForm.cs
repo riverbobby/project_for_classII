@@ -22,9 +22,8 @@ namespace JustinTownleySoftwareII
             {
                 //populating current address from CurrentAppointmentID
                 LookupAppointment(Globals.CurrentAppointmentID);
+                MessageBox.Show("suspected second if editing");
                 appointmentIdTextBox.Text = Globals.CurrentAppointment.AppointmentID.ToString();
-                customerComboBox.SelectedValue = Globals.CurrentAppointment.CustomerID;
-                userIdComboBox.SelectedValue = Globals.CurrentAppointment.UserID;
                 titleTextBox.Text = Globals.CurrentAppointment.Title;
                 descriptionTextBox.Text = Globals.CurrentAppointment.Description;
                 locationTextBox.Text = Globals.CurrentAppointment.Location;
@@ -43,6 +42,7 @@ namespace JustinTownleySoftwareII
             else
             {
                 appointmentIdTextBox.Text = "Auto generated when saved";
+                MessageBox.Show("suspected 2nd if new");
             }
 
         }
@@ -75,12 +75,18 @@ namespace JustinTownleySoftwareII
         private void AppointmentForm_VisibleChanged(object sender, EventArgs e)
         {
             LoadCustomers(Globals.Customers);
+            MessageBox.Show("suspectedFirst");
             customerComboBox.DataSource = Globals.Customers;
             customerComboBox.DisplayMember = "Name";
             customerComboBox.ValueMember = "CustomerID";
             userIdComboBox.DataSource = Globals.Users;
             userIdComboBox.DisplayMember = "UserName";
             userIdComboBox.ValueMember = "UserID";
+            if (Globals.CurrentAppointmentID != -1)
+            {
+                customerComboBox.SelectedValue = Globals.CurrentAppointment.CustomerID;
+                userIdComboBox.SelectedValue = Globals.CurrentAppointment.UserID;
+            }
         }
         private void LoadCustomers(BindingList<Customer> customers)
         {

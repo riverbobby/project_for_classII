@@ -23,7 +23,6 @@ namespace JustinTownleySoftwareII
                 addressIdTextBox.Text = Globals.CurrentAddress.AddressID.ToString();
                 addressTextBox.Text = Globals.CurrentAddress.AddressField;
                 address2TextBox.Text = Globals.CurrentAddress.AddressField2;
-                cityComboBox.SelectedValue = Globals.CurrentAddress.CityID;
                 postalCodeTextBox.Text = Globals.CurrentAddress.PostalCode;
                 phoneTextBox.Text = Globals.CurrentAddress.Phone;
                 createdOnLabel.Text = $"created on {Globals.CurrentAddress.CreateDate.ToString()}";
@@ -92,6 +91,10 @@ namespace JustinTownleySoftwareII
             cityComboBox.DataSource = Globals.Cities;
             cityComboBox.DisplayMember = "CityName";
             cityComboBox.ValueMember = "CityID";
+            if (Globals.CurrentAddressID != -1)
+            {
+                cityComboBox.SelectedValue = Globals.CurrentAddress.CityID;
+            }
 
         }
 
