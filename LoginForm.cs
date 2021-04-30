@@ -203,7 +203,7 @@ namespace JustinTownleySoftwareII
                 {
                     foreach (Customer k in Globals.Customers.Where<Customer>(customer => customer.CustomerID == i.CustomerID))
                     {
-                        messageBuilder.Append($"User {j.UserName} has an appointment that begins at {i.Start.ToShortTimeString()} with {k.Name}\n");
+                        messageBuilder.Append($"-User {j.UserName} has an appointment that begins at {i.Start.ToShortTimeString()} with {k.Name}\n");
                     }
 
                 }
