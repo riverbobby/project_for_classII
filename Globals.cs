@@ -110,16 +110,7 @@ namespace JustinTownleySoftwareII
                 // Perform database operations
                 string sql = $"DELETE FROM {table} WHERE {IDName} = {ID}";
                 MySqlCommand cmd = new MySqlCommand(sql, Globals.conn);
-                MessageBox.Show($"{cmd.ExecuteNonQuery()}");
-                //if (cmd.ExecuteNonQuery() == 1)
-                //{
-                //    MessageBox.Show("Successfully Deleted");
-                //    success = true;
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Error deleting from MySQL");
-                //}
+                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
